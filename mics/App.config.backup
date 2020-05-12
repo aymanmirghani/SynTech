@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  
+  <configSections>
+    <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+      <section name="MICS.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+    </sectionGroup>
+  </configSections>
+  <connectionStrings>
+    <add name="MICS.Properties.Settings.MICSMobileDBConnectionString"
+      connectionString="Data Source=Program Files\MICSMobile\MICSMobileDB.sdf"
+      providerName="Microsoft.SqlServerCe.Client" />
+    <add name="MICS.Properties.Settings.mics_serverConnectionString"
+      connectionString="Data Source=192.168.1.150\SQLEXPRESS;Initial Catalog=mics_server;User ID=sa;Password=mics"
+      providerName="System.Data.SqlClient" />
+    <add name="MICS.Properties.Settings.MICSMobileDBConnectionString"
+      connectionString="Data Source=C:\user\Development\CSharp\MICSMobile\MICSMobile\MICSMobile\MICSMobileDB.sdf;"
+      providerName="Microsoft.SqlServerCe.Client" />
+    <add name="MICS.Properties.Settings.mics_serverConnectionString1"
+      connectionString="Data Source=192.168.1.150\SQLEXPRESS;Initial Catalog=mics_server;Integrated Security=True"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <appSettings>
+    <add key="logfolder" value="c:\dev\mics\log" />
+    <add key="logfile" value="log.txt" />
+    <add key="connectionstring" value="Data Source=192.168.1.150\SQLEXPRESS;Initial Catalog=mics_server;Persist Security Info=True;User ID=sa;password=mics"/>
+    <add key="MobileConnectionString" value="Data Source=Program Files\MICSMobile\MICSMobileDB.sdf"/>
+   
+  </appSettings>
+  
+  <userSettings>
+    <MICS.Properties.Settings>
+      <setting name="Setting" serializeAs="Xml">
+        <value>
+          <ArrayOfString>
+            <string>c:\output\1\</string>
+            <string>c:\output\2\</string>
+            <string>c:\output\3\</string>
+            <string>c:\output\4\</string>
+            <string>c:\output\5\</string>
+          </ArrayOfString>
+        </value>
+      </setting>
+    </MICS.Properties.Settings>
+  </userSettings>
+</configuration>

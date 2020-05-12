@@ -1,0 +1,716 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using MICS.BLL;
+using MICS.Utilities;
+
+namespace MICS
+{
+    public partial class frmCustomer : Form
+    {
+        private string[,] m_strDeliveryFreq = {
+                                   {"0", "<Select One>"},
+                                   {"1","Weekly"},
+                                   {"2","Every Other Week"},
+                                   {"3", "Monthly"},
+                                   {"4", "Quartly"},
+                                   {"5", "Daily"},
+                                   {"6", "Twice A Week"}
+                                   };
+
+        private int m_AddressID=0;
+        private int m_BillingAddressID = 0;
+        public frmCustomer()
+        {
+            InitializeComponent();
+        }
+
+        private void frmCustomer_Load(object sender, EventArgs e)
+        {
+            using (new CursorHandler())
+            {
+                PopulateComboBoxes();
+                SearchCustomer();
+                //PopulateGrid(0);
+            }
+        }
+        private void RefreshForm(int selected)
+        {
+            //ClearFields();
+            PopulateGrid(selected);
+            
+           
+        }
+        private void LoadTerritories(int selected)
+        {
+            SalesTerritory st = new SalesTerritory();
+            try
+            {
+                //Sales Territory
+                DataSet ds = st.GetAllSalesTerritoryDataSet();
+                DataTable dt = ds.Tables[0];
+                DataRow dr = dt.NewRow();
+                dr[0] = "0";
+                dr[1] = "<Select One>";
+                dt.Rows.InsertAt(dr, 0);
+                cmbTerritory.DataSource = dt;
+                cmbTerritory.DisplayMember = "Name";
+                cmbTerritory.ValueMember = "TerritoryID";
+                cmbTerritory.SelectedIndex = selected;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void PopulateComboBoxes()
+        {
+            
+            //SalesTerritory st = new SalesTerritory();
+            try
+            {
+                //Sales Territory
+                //DataSet ds = st.GetAllSalesTerritoryDataSet();
+                //DataTable dt = ds.Tables[0];
+                //DataRow dr = dt.NewRow();
+                //dr[0] = "0";
+                //dr[1] = "<Select One>";
+                //dt.Rows.InsertAt(dr, 0);
+                //cmbTerritory.DataSource = dt;
+                //cmbTerritory.DisplayMember = "Name";
+                //cmbTerritory.ValueMember = "TerritoryID";
+                LoadTerritories(0);
+                //Delivery days
+                int i = 1;
+                cmbDeliveryDay.Items.Insert(0, "<Select One>");
+                
+                for (DayOfWeek d = DayOfWeek.Monday; d <= DayOfWeek.Sunday; d++)
+                {
+                  cmbDeliveryDay.Items.Insert(i++,d.ToString());
+                }
+                cmbDeliveryDay.SelectedIndex = 0;
+                //Delivery Frequency
+                //cmbOrderFrequency.Items.Insert(0, "<Select One>");
+                for(i=0; i< m_strDeliveryFreq.Length/2; i++)
+                {
+                    cmbOrderFrequency.Items.Add(m_strDeliveryFreq[i,1]);
+                    
+                }
+                
+                cmbOrderFrequency.SelectedIndex = 0;
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "MICS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                //st = null;
+            }
+
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveCustomer_Click(object sender, EventArgs e)
+        {
+            //do valication here
+            SaveCustomer();
+
+            
+        }
+
+        private void SaveCustomer()
+        {
+            Customer cus = new Customer();
+            Address add = new Address();
+            Address billing_add = new Address();
+            try
+            {
+                if (txtCustomerID.Text != string.Empty)
+                {
+                    cus.CustomerID = Int32.Parse(txtCustomerID.Text);
+                }
+                cus.AccountNumber = txtAccountNumber.Text;
+                cus.ActiveFlag = chkActiveFlag.Checked;
+                cus.Name = txtCustomerName.Text;
+                cus.Phone = txtTelephone.Text;
+                cus.SecondPhone = txtSecondaryTelephone.Text;
+                cus.Fax = txtFax.Text;
+                cus.Email = txtEmail.Text;
+                cus.CustomerType = m_strDeliveryFreq[cmbOrderFrequency.SelectedIndex,0]; //cmbOrderFrequency.SelectedValue.ToString();
+               
+                if (cmbTerritory.SelectedIndex > 0)
+                    cus.TerritoryID = Int32.Parse(cmbTerritory.SelectedValue.ToString());
+
+                cus.ContactName = txtContactName.Text;
+                if (txtCreditLimit.Text != string.Empty)
+                {
+                    cus.CreditLimit = decimal.Parse(txtCreditLimit.Text);
+                }
+                if (cmbDeliveryDay.SelectedIndex > 0)
+                {
+                    cus.DeliveryDay = short.Parse(cmbDeliveryDay.SelectedIndex.ToString());
+                }
+                //address info
+                add.AddressID = m_AddressID;
+                add.AddressLine1 = txtStreetAddress.Text;
+                add.AddressLine2 = "";
+                add.City = txtCity.Text;
+                add.StateProvince = txtState.Text;
+                add.PostalCode = txtZip.Text;
+                //billing address
+                billing_add.AddressID = m_BillingAddressID;
+                billing_add.AddressLine1 = txtBillingStreetAddress.Text;
+                billing_add.AddressLine2 = "";
+                billing_add.City = txtBillingCity.Text;
+                billing_add.StateProvince = txtBillingState.Text;
+                billing_add.PostalCode = txtBillingZip.Text;
+                if (cus.CustomerID == 0)
+                {
+                    //This is a new customer, add row to customer and address table
+                    cus.AddressID = add.AddAddress(add);
+                    if (cus.AddressID > 0)
+                    {
+                        cus.BillingAddressID = billing_add.AddAddress(billing_add);
+                        if (cus.Exists(cus.Name)>0)
+                        {
+                            DialogResult result = MessageBox.Show("The Customer " + cus.Name + " already exists\nWould you like to update it?", "MICS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                cus.UpdateCustomer(cus);
+                                MessageBox.Show("Record saved successfully", "MICS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Record is not saved", "MICS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+
+                        }
+                        else
+                        {
+                            cus.CustomerID = cus.AddCustomer(cus);
+                            if (cus.CustomerID > 0)
+                            {
+                                MessageBox.Show("Record saved successfully", "MICS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                RefreshForm(cus.CustomerID);
+                            }
+                            else
+                            {
+                                ShowError("Failed to add new customer");
+                            }
+                        }
+                    }
+
+
+                }
+                else if (cus.CustomerID > 0)
+                {
+                    //This is an existing customer, do and update to the address and customer tables.
+                    if (m_AddressID == 0)
+                    {
+                        m_AddressID = add.AddAddress(add);
+                    }
+                    else
+                    {
+                        add.Update(add);
+                    }
+                    if (m_BillingAddressID == 0)
+                    {
+                        m_BillingAddressID = billing_add.AddAddress(billing_add);
+                    }
+                    else
+                    {
+                        billing_add.Update(billing_add);
+                    }
+                    cus.AddressID = m_AddressID;
+                    cus.BillingAddressID = m_BillingAddressID;
+                    cus.UpdateCustomer(cus);
+                    MessageBox.Show("Record saved successfully", "MICS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshForm(cus.CustomerID);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex.Message);
+
+            }
+            finally
+            {
+                cus = null;
+                add = null;
+            }
+        }
+        private void ShowError(string strErrText)
+        {
+            MessageBox.Show(strErrText, "MICS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private bool IsInvalidControl()
+        {
+            bool invalid = false;
+            foreach (Control ctrl in groupInput.Controls)
+            {
+                
+                if (errorProvider1.GetError(ctrl) != "")
+                {
+                    invalid = true;
+                    break;
+                }
+            }
+            if (invalid)
+            {
+                MessageBox.Show("There are some invalid fields", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return invalid;
+        }
+        private void ClearFields()
+        {
+            foreach (Control ctrl in groupCustInfo.Controls)
+            {
+                if (ctrl.Name.StartsWith("txt"))
+                {
+                    ctrl.Text = "";
+                }
+            }
+            foreach (Control ctrl in groupCustOtherInfo.Controls)
+            {
+                if (ctrl.Name.StartsWith("txt"))
+                {
+                    ctrl.Text = "";
+                }
+            }
+            foreach (Control ctrl in groupBillingAddress.Controls)
+            {
+                if (ctrl.Name.StartsWith("txt"))
+                {
+                    ctrl.Text = "";
+                }
+            }
+            foreach (Control ctrl in groupNamePhone.Controls)
+            {
+                if (ctrl.Name.StartsWith("txt"))
+                {
+                    ctrl.Text = "";
+                }
+            }
+            txtAccountNumber.Text = "";
+            txtCustomerID.Text = "";
+            chkCopyShippingAddress.Checked = false;
+            if (cmbTerritory.Items.Count > 0)
+            {
+                cmbTerritory.SelectedIndex = 0;
+            }
+            if (cmbOrderFrequency.Items.Count > 0)
+            {
+                cmbOrderFrequency.SelectedIndex = 0;
+            }
+            if (cmbDeliveryDay.Items.Count > 0)
+            {
+                cmbDeliveryDay.SelectedIndex = 0;
+            }
+            chkActiveFlag.Checked = true;
+            m_AddressID = 0;
+            m_BillingAddressID = 0;
+        }
+        private void txtCustomerName_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtCustomerName.Text.Trim() == String.Empty)
+            {
+                errorProvider1.SetError(txtCustomerName, "Field required");
+            }
+            else
+            {
+                errorProvider1.SetError(txtCustomerName, "");
+            }
+        }
+        private void SetupCustomerGrid()
+        {
+            grdCustomers.Columns["CustomerID"].Visible = false;
+            grdCustomers.Columns["AddressID"].Visible = false;
+            grdCustomers.Columns["BillingAddressID"].Visible = false;
+            grdCustomers.Columns["TerritoryID"].Visible = false;
+            //grdCustomers.Columns["AccountNumber"].Visible = false;
+            grdCustomers.Columns["CustomerType"].Visible = false;
+            //grdCustomers.Columns["SecondPhone"].Visible = false;
+            grdCustomers.Columns["ModifiedDate"].Visible = false;
+            grdCustomers.Columns["Email"].Visible = false;
+        }
+        private void PopulateGrid(int selectedID)
+        {
+            DataSet ds = new DataSet();
+            Customer cus = new Customer();
+            ds = cus.GetAllCustomersDataSet();
+            DataTable dt = ds.Tables[0];
+            grdCustomers.DataSource = dt;
+            SetupCustomerGrid();
+            
+            int i = 0;
+            if (selectedID > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (selectedID == Int32.Parse(dr["CustomerID"].ToString()))
+                    {
+                        grdCustomers.Rows[i].Selected = true;
+                        grdCustomers.FirstDisplayedScrollingRowIndex = i;
+                        ShowCustomerData(i);
+                        break;
+                    }
+                    i++;
+                }
+            }
+            
+       }
+       private void PopulateGrid(DataSet ds)
+       {
+           DataTable dt = ds.Tables[0];
+           grdCustomers.DataSource = dt;
+
+           //dt.Columns[0].ColumnName = "ID";
+           //dt.Columns[1].ColumnName = "Customer";
+           //dt.Columns[2].ColumnName = "Phone";
+           //dt.Columns[3].ColumnName = "Fax";
+           //dt.Columns[4].ColumnName = "Credit Limit";
+           //dt.Columns[5].ColumnName = "Delivery Day";
+           //dt.Columns[6].ColumnName = "Contact";
+
+           SetupCustomerGrid();
+           //grdCustomers.Columns["CustomerID"].Visible = false;
+           //grdCustomers.Columns["AddressID"].Visible = false;
+           //grdCustomers.Columns["TerritoryID"].Visible = false;
+           ////grdCustomers.Columns["AccountNumber"].Visible = false;
+           //grdCustomers.Columns["CustomerType"].Visible = false;
+           ////grdCustomers.Columns["SecondPhone"].Visible = false;
+           //grdCustomers.Columns["ModifiedDate"].Visible = false;
+           //grdCustomers.Columns["Email"].Visible = false;
+       }
+
+        private void groupInput_Enter(object sender, EventArgs e)
+        {
+
+        }
+        private void ShowCustomerData(int selectedRow)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            if (selectedRow < 0)
+            {
+                row = grdCustomers.CurrentRow;
+            }
+            else
+                row = grdCustomers.Rows[selectedRow];
+            if (row == null) return;
+            ClearFields();
+            foreach (DataGridViewCell cell in row.Cells)
+            {
+                switch (cell.OwningColumn.Name)
+                {
+                    case "CustomerID":
+                        txtCustomerID.Text = cell.Value.ToString();
+                        break;
+                    case "AccountNumber":
+                        txtAccountNumber.Text = cell.Value.ToString();
+                        break;
+                    case "ActiveFlag":
+                        chkActiveFlag.Checked = Boolean.Parse(cell.Value.ToString());
+                        break;
+                    case "Name":
+                        txtCustomerName.Text = cell.Value.ToString();
+                        break;
+                    case "TerritoryID":
+                        SalesTerritory st = new SalesTerritory();
+                        st = st.GetSalesTerritorys(Int32.Parse(cell.Value.ToString()));
+                        int index = cmbTerritory.FindStringExact(st.Name);
+
+                        //                        int index = cmbTerritory.Items.IndexOf(cell.Value.ToString());
+                        //cmbTerritory.SelectedIndex = index;
+                        cmbTerritory.SelectedValue = st.TerritoryID;
+                        break;
+                    case "AddressID":
+                        m_AddressID = Int32.Parse(cell.Value.ToString());
+                        Address add = new Address();
+                        add = add.GetAddresss(m_AddressID);
+                        txtStreetAddress.Text = add.AddressLine1;
+                        txtCity.Text = add.City;
+                        txtState.Text = add.StateProvince;
+                        txtZip.Text = add.PostalCode;
+                        break;
+                    case "BillingAddressID":
+                        m_BillingAddressID = Int32.Parse(cell.Value.ToString());
+                        Address billing_add = new Address();
+                        billing_add = billing_add.GetAddresss(m_BillingAddressID);
+                        txtBillingStreetAddress.Text = billing_add.AddressLine1;
+                        txtBillingCity.Text = billing_add.City;
+                        txtBillingState.Text = billing_add.StateProvince;
+                        txtBillingZip.Text = billing_add.PostalCode;
+                        break;
+                    case "Phone":
+                        txtTelephone.Text = cell.Value.ToString();
+                        break;
+                    case "SecondPhone":
+                        txtSecondaryTelephone.Text = cell.Value.ToString();
+                        break;
+                    case "Fax":
+                        txtFax.Text = cell.Value.ToString();
+                        break;
+                    case "Email":
+                        txtEmail.Text = cell.Value.ToString();
+                        break;
+                    case "CreditLimit":
+                        txtCreditLimit.Text = cell.Value.ToString();
+                        break;
+                    case "ContactName":
+                        txtContactName.Text = cell.Value.ToString();
+                        break;
+                    case "DeliveryDay":
+
+                        //int delDay = Int32.Parse(cell.Value.ToString());
+                        //DayOfWeek dow =(DayOfWeek) delDay;
+                        try
+                        {
+                            DayOfWeek dow = (DayOfWeek)(Int32.Parse(cell.Value.ToString()));
+                            index = Int32.Parse(cell.Value.ToString());
+                            cmbDeliveryDay.SelectedIndex = index;
+                        }
+                        catch
+                        {
+                            cmbDeliveryDay.SelectedIndex = 0;
+                        }
+                        break;
+                    case "CustomerType":
+                        try
+                        {
+                            index = Int32.Parse(cell.Value.ToString());
+                            cmbOrderFrequency.SelectedIndex = index;
+                        }
+                        catch
+                        {
+                            cmbOrderFrequency.SelectedIndex = 0;
+                        }
+                        break;
+                    default:
+                        break;
+
+
+                }
+            }
+
+        }
+
+        private void grdCustomers_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ShowCustomerData(-1);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SearchCustomer();
+        }
+
+        private void SearchCustomer()
+        {
+            string where = "customer.Name like '" + txtCustomerName.Text.Trim() + "%'";
+            if (cmbTerritory.Items.Count > 0 && cmbTerritory.SelectedIndex > 0)
+            {
+                where += " and customer.TerritoryID=" + cmbTerritory.SelectedValue.ToString();
+            }
+            if (txtTelephone.Text.Trim() != String.Empty)
+            {
+                //if (where.Length > 0)
+                //where += " and ";
+                where += " and phone like '" + txtTelephone.Text.Trim() + "%'";
+            }
+            if (cmbDeliveryDay.SelectedIndex > 0)
+            {
+                //if (where.Length > 0)
+                //    where += " and ";
+                where += " and DeliveryDay=" + cmbDeliveryDay.SelectedIndex.ToString();
+            }
+            if (txtCreditLimit.Text.Trim() != String.Empty)
+            {
+                // if (where.Length > 0)
+                //    where += " and ";
+                where += " and CreditLimit >=" + txtCreditLimit.Text.Trim();
+            }
+            if (chkActiveFlag.Checked)
+            {
+                where += " and activeFlag=1";
+            }
+            else
+            {
+                where += " and activeFlag=0";
+            }
+            string OrderBy = "customer.Name";
+            Customer cus = new Customer();
+            try
+            {
+
+                DataSet ds = cus.GetCustomersDataSet(where, OrderBy);
+                PopulateGrid(ds);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "MICS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cus = null;
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        private void btnDeleteCustomer_Click(object sender, EventArgs e)
+        {
+            DeleteCustomer();
+        }
+
+        private void DeleteCustomer()
+        {
+            int DeletedRows = grdCustomers.SelectedRows.Count;
+            if (DeletedRows == 0)
+            {
+                MessageBox.Show("No customer selected.You must select a customer to delete", "MICS", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+            
+            string msg = "Are you sure you want to delete" + DeletedRows.ToString() + " customer record(s)";
+            int count = DeletedRows;
+            int DeleteCount = 0;
+            if (MessageBox.Show(msg, "MICS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                for (int i = 0; i < grdCustomers.RowCount && count>0; i++)
+                {
+                    if (grdCustomers.Rows[i].Selected)
+                    {
+                        count--;
+                        Customer cus = new Customer();
+                        try
+                        {
+                            int custid = Int32.Parse(grdCustomers.Rows[i].Cells[1].Value.ToString());
+                            if(CheckCustomerOrders(custid))
+                            {
+                            MessageBox.Show("Can not delete customer " + custid.ToString() + " because it has active orders.");
+                            continue;
+                            }
+                               
+                            cus.CustomerID = custid; //Int32.Parse(txtCustomerID.Text);
+                            cus.RemoveCustomer(cus);
+                            DeleteCount++;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "MICS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            cus = null;
+                        }
+                    }
+                }
+                MessageBox.Show(DeleteCount.ToString() + " Record(s) deleted successfully", "MICS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RefreshForm(0);
+            }
+        }
+        private bool CheckCustomerOrders(int custid)
+        {
+            bool ret = false;
+            try
+            {
+                SalesOrderHeader soh = new SalesOrderHeader();
+                DataSet ds = soh.GetSalesOrderHeaderDataSet("customerid=" + custid.ToString(), "customerid");
+                if (ds.Tables[0].Rows.Count > 0)
+                    ret = true;
+                else
+                    ret = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return ret;
+        }
+        private void txtState_Leave(object sender, EventArgs e)
+        {
+            txtState.Text = txtState.Text.ToUpper();
+        }
+
+        private void chkCopyShippingAddress_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkCopyShippingAddress.Checked == true)
+            {
+                txtBillingStreetAddress.Text = txtStreetAddress.Text;
+                txtBillingCity.Text = txtCity.Text;
+                txtBillingState.Text = txtState.Text;
+                txtBillingZip.Text = txtZip.Text;
+            }
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveCustomer();
+        }
+
+        private void btnSearch_Click_1(object sender, EventArgs e)
+        {
+            SearchCustomer();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteCustomer();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+    
+        private void grdCustomers_SelectionChanged(object sender, EventArgs e)
+        {
+            ShowCustomerData(-1);
+        }
+
+        private void picAdd_Click(object sender, EventArgs e)
+        {
+            frmTerritory frm = new frmTerritory();
+            frm.ShowDialog();
+            try
+            {
+                int selected = cmbTerritory.SelectedIndex;
+                LoadTerritories(selected);
+                cmbTerritory.SelectedIndex = selected;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void grdCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        
+    }
+}

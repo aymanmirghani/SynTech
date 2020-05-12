@@ -1,0 +1,314 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using MICS.BLL;
+namespace MICS
+{
+    public partial class frmSubCategories : frmParent
+    {
+        DataSet SubCategoryDs = new DataSet();
+        public frmSubCategories()
+        {
+            InitializeComponent();
+        }
+
+        private void frmSubCategories_Load(object sender, EventArgs e)
+        {
+            PopulateCategories();
+        }
+        private void PopulateCategories()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            ProductCategory selectNew = new ProductCategory();
+            ProductCategoryCollection col = new ProductCategoryCollection();
+            ProductCategory pc = new ProductCategory();
+            try
+            {
+                selectNew.Name = "[Select One]";
+                selectNew.ProductCategoryID = 0;
+                col = pc.GetAllProductCategoryCollection();
+                col.Insert(0, selectNew);
+                cmbCategories.DataSource = col;
+                cmbCategories.DisplayMember = "Name";
+                cmbCategories.ValueMember = "ProductCategoryID";
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Product Subcategories", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Cursor.Current = Cursors.Default;
+            }
+
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cmbCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulateSubCategories(0);
+        }
+        private void PopulateSubCategories(int selectedID)
+        {
+            ProductSubcategory psc = new ProductSubcategory();
+            int productCategoryID =0;
+            try
+            {
+                productCategoryID = Int32.Parse(cmbCategories.SelectedValue.ToString());
+            }
+            catch
+            {
+                return;
+            }
+            if(productCategoryID <1) return;
+            string where = "[ProductCategoryID]="+productCategoryID;
+            string orderBy="[Name]";
+           
+            try
+            {
+                SubCategoryDs = psc.GetProductSubcategoryDataSet(where, orderBy);
+                subcategoryGrid.DataSource = SubCategoryDs.Tables[0];
+                subcategoryGrid.Columns.Remove("ModifiedDate");
+                subcategoryGrid.Columns["ProductCategoryID"].Visible = false;
+                subcategoryGrid.Columns["ProductSubcategoryID"].Visible = false;
+                if (selectedID > 0)
+                {
+                    for (int i = 0; i < subcategoryGrid.Rows.Count; i++)
+                    {
+                        int id = Int32.Parse(SubCategoryDs.Tables[0].Rows[i]["productsubcategoryid"].ToString());
+                        if (id == selectedID)
+                        {
+                            subcategoryGrid.Rows[i].Selected = true;
+                            subcategoryGrid.FirstDisplayedScrollingRowIndex = i;
+                            GridRowChanged(i);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Product Subcategories", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                psc = null;
+                //ds = null;
+            }
+        }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void picAdd_Click(object sender, EventArgs e)
+        {
+            frmCategory frm = new frmCategory();
+            frm.ShowDialog();
+        }
+        private bool ValidSubCategory()
+        {
+            return (ValidateEmpty(txtSubcategory));
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            int subCatID = 0;
+            if (ValidSubCategory() == false)
+            {
+                return;
+            }
+            if (lblSubcategoryID.Text.Length > 0)
+            {
+                UpdateSubCategory();
+                subCatID = Int32.Parse(lblSubcategoryID.Text.ToString());
+            }
+            else
+            {
+                subCatID = AddSubCategory();
+            }
+            PopulateSubCategories(subCatID);
+
+        }
+        private void UpdateSubCategory()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            ProductSubcategory psc = new ProductSubcategory();
+            string subCatName = txtSubcategory.Text.Trim();
+            int subCatID = 0;
+            int catID = 0;
+
+            try
+            {
+                subCatID = Int32.Parse(lblSubcategoryID.Text.ToString());
+                catID= Int32.Parse(cmbCategories.SelectedValue.ToString());
+            }
+            catch
+            {
+                subCatID = 0;
+            }
+            if(subCatID==0 || catID==0)
+            {
+                Cursor.Current = Cursors.Default;
+                return;
+            }
+            try
+            {
+                psc.Name = subCatName;
+                psc.ProductSubcategoryID = subCatID;
+                psc.ProductCategoryID = catID;
+                psc.UpdateProductSubcategory(psc);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Product Subcategories", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Cursor.Current = Cursors.Default;
+            }
+            finally
+            {
+                psc = null;
+            }
+            Cursor.Current = Cursors.Default;
+        }
+        private int AddSubCategory()
+        {
+            int ret = 0;
+            Cursor.Current = Cursors.WaitCursor;
+            ProductSubcategory psc = new ProductSubcategory();
+            string subCatName = txtSubcategory.Text.Trim();
+            try
+            {
+                int categoryID = 0;
+                try
+                {
+                    categoryID = Int32.Parse(cmbCategories.SelectedValue.ToString());
+                }
+                catch
+                {
+                    categoryID = 0;
+                }
+                if (categoryID > 0)
+                {
+                    psc.Name = subCatName;
+                    psc.ProductCategoryID = categoryID;
+                    int pscid = psc.Exists(psc.Name,psc.ProductCategoryID);
+                    if (pscid > 0)
+                    {
+                        DialogResult result = MessageBox.Show("Product Subcategory " + psc.Name + " already exists\nWould you like to update it?", "MICS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            psc.UpdateProductSubcategory(psc);
+                            MessageBox.Show("Record updated successfully", "MICS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Record is not saved", "MICS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        psc.AddProductSubcategory(psc);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Product Subcategories", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Cursor.Current = Cursors.Default;
+            }
+            finally
+            {
+                psc = null;
+            }
+            Cursor.Current = Cursors.Default;
+            return (ret);
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            txtSubcategory.Text = String.Empty;
+            lblSubcategoryID.Text = String.Empty;
+        }
+        private void DeleteSubCategory()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            ProductSubcategory psc = new ProductSubcategory();
+            int subID = 0;
+            try
+            {
+                subID = Int32.Parse(lblSubcategoryID.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Select a subcategory to delete", "Product Subcategories", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Cursor.Current = Cursors.Default;
+                return;
+            }
+            try
+            {
+                psc.ProductSubcategoryID = subID;
+                psc.RemoveProductSubcategory(subID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Product Subcategories", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Cursor.Current = Cursors.Default;
+            }
+            finally
+            {
+                psc = null;
+            }
+
+            Cursor.Current = Cursors.Default;
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int cur_row = subcategoryGrid.CurrentRow.Index;
+            DeleteSubCategory();
+            cur_row++;
+            if (cur_row >= subcategoryGrid.Rows.Count)
+                cur_row = 0;
+            int id = Int32.Parse(SubCategoryDs.Tables[0].Rows[cur_row]["productsubcategoryid"].ToString());
+            PopulateSubCategories(id);
+        }
+
+        private void subcategoryGrid_MouseClick(object sender, MouseEventArgs e)
+        {
+            GridRowChanged(-1);
+        }
+
+        private void GridRowChanged(int selectedRow)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            if (selectedRow < 0)
+                row = subcategoryGrid.CurrentRow;
+            else
+                row = subcategoryGrid.Rows[selectedRow];
+            if (row == null) return;
+            foreach (DataGridViewCell cell in row.Cells)
+            {
+                switch (cell.OwningColumn.Name)
+                {
+                    case "ProductCategoryID":
+                        break;
+                    case "ProductSubcategoryID":
+                        lblSubcategoryID.Text = cell.Value.ToString();
+                        break;
+                    case "Name":
+                        txtSubcategory.Text = cell.Value.ToString();
+                        break;
+                }
+            }
+        }
+
+        private void subcategoryGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            GridRowChanged(-1);
+        }
+    }
+}

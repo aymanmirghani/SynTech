@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MICS", "MICS.csproj", "{40E9D1AF-E002-4F26-80CF-A3E98B2DD611}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MicsSetup", "..\MicsSetup\MicsSetup.vdproj", "{091FC288-6FBD-4E4C-88A2-A2FD7BAD37AA}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 3
+		SccProjectName0 = $/MICS.root/MICS
+		SccLocalPath0 = ..
+		SccProvider0 = MSSCCI:Dynamsoft\u0020SourceAnywhere\u0020Hosted
+		SccProjectFilePathRelativizedFromConnection0 = mics\\
+		SccProjectUniqueName1 = MICS.csproj
+		SccLocalPath1 = ..
+		SccProjectFilePathRelativizedFromConnection1 = mics\\
+		SccProjectUniqueName2 = ..\\MicsSetup\\MicsSetup.vdproj
+		SccLocalPath2 = ..
+		SccProjectFilePathRelativizedFromConnection2 = MicsSetup\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40E9D1AF-E002-4F26-80CF-A3E98B2DD611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E9D1AF-E002-4F26-80CF-A3E98B2DD611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E9D1AF-E002-4F26-80CF-A3E98B2DD611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E9D1AF-E002-4F26-80CF-A3E98B2DD611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{091FC288-6FBD-4E4C-88A2-A2FD7BAD37AA}.Debug|Any CPU.ActiveCfg = Debug
+		{091FC288-6FBD-4E4C-88A2-A2FD7BAD37AA}.Debug|Any CPU.Build.0 = Debug
+		{091FC288-6FBD-4E4C-88A2-A2FD7BAD37AA}.Release|Any CPU.ActiveCfg = Release
+		{091FC288-6FBD-4E4C-88A2-A2FD7BAD37AA}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

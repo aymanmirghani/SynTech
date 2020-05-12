@@ -1,0 +1,219 @@
+**************************** 3/4/2007 12:00:00 AM ***********************************
+Time: 2007-03-04 14:23:24 | Procedure Name: AddAddress | Error: ExecuteNonQuery: Connection property has not been initialized.
+Time: 2007-03-04 14:25:35 | Procedure Name: AddAddress | Error: Object reference not set to an instance of an object.
+Time: 2007-03-04 15:15:38 | Procedure Name: AddAddress | Error: Procedure or function 'InsertAddress' expects parameter '@AddressLine2', which was not supplied.
+Time: 2007-03-04 15:27:17 | Procedure Name: AddAddress | Error: Procedure or function 'InsertAddress' expects parameter '@AddressLine2', which was not supplied.
+Time: 2007-03-04 15:35:39 | Procedure Name: AddCustomer | Error: Procedure or function 'InsertCustomer' expects parameter '@CustomerType', which was not supplied.
+Time: 2007-03-04 21:35:53 | Procedure Name: AddCustomer | Error: Procedure or function 'InsertCustomer' expects parameter '@CustomerType', which was not supplied.
+Time: 2007-03-04 22:36:35 | Procedure Name: GetAllCustomersDataSet() | Error: Could not find stored procedure 'SelectCustomerAll'.
+**************************** 3/5/2007 12:00:00 AM ***********************************
+Time: 2007-03-05 12:16:49 | Procedure Name: GetAllEmployeeDataSet() | Error: Fill: SelectCommand.Connection property has not been initialized.
+Time: 2007-03-05 12:16:49 | Procedure Name: GetAllEmployeesDataSet | Error: Object reference not set to an instance of an object.
+Time: 2007-03-05 12:19:37 | Procedure Name: GetAllEmployeesDataSet | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-03-05 13:05:11 | Procedure Name: InsertUpdateSalesPerson | Error: Procedure or function 'InsertUpdateSalesPerson' expects parameter '@Bonus', which was not supplied.
+Time: 2007-03-05 13:05:11 | Procedure Name: AddSalesPerson | Error: Procedure or function 'InsertUpdateSalesPerson' expects parameter '@Bonus', which was not supplied.
+**************************** 3/8/2007 12:00:00 AM ***********************************
+Time: 2007-03-08 22:24:32 | Procedure Name: GetAllSalesTerritoryHistorysViewDataSet() | Error: The request for procedure 'SalesTerritoryList_View' failed because 'SalesTerritoryList_View' is a view object.
+Time: 2007-03-08 22:24:33 | Procedure Name: GetSalesTerritoryHistoryViewDataSet | Error: The request for procedure 'SalesTerritoryList_View' failed because 'SalesTerritoryList_View' is a view object.
+**************************** 3/10/2007 12:00:00 AM ***********************************
+Time: 2007-03-10 11:12:55 | Procedure Name: GetSalesTerritoryHistory | Error: String was not recognized as a valid DateTime.
+Time: 2007-03-10 11:22:14 | Procedure Name: UpdateSalesTerritoryHistory | Error: Procedure or function 'UpdateSalesTerritoryHistory' expects parameter '@EndDate', which was not supplied.
+Time: 2007-03-10 11:22:14 | Procedure Name: UpdateSalesTerritoryHistory | Error: Procedure or function 'UpdateSalesTerritoryHistory' expects parameter '@EndDate', which was not supplied.
+Time: 2007-03-10 15:33:29 | Procedure Name: GetAllSalesTerritorysDataSet() | Error: Could not find stored procedure 'SelectSalesTerritorysAll'.
+Time: 2007-03-10 15:33:29 | Procedure Name: GetAllSalesTerritoryDataSet | Error: Could not find stored procedure 'SelectSalesTerritorysAll'.
+**************************** 3/11/2007 12:00:00 AM ***********************************
+Time: 2007-03-11 00:59:28 | Procedure Name: UpdateCustomer | Error: Procedure or function 'UpdateCustomer' expects parameter '@CustomerType', which was not supplied.
+Time: 2007-03-11 00:59:29 | Procedure Name: UpdateCustomer | Error: Procedure or function 'UpdateCustomer' expects parameter '@CustomerType', which was not supplied.
+Time: 2007-03-11 01:06:07 | Procedure Name: UpdateAddress | Error: Cannot insert explicit value for identity column in table 'Address' when IDENTITY_INSERT is set to OFF.
+Time: 2007-03-11 01:06:07 | Procedure Name: UpdateAddress | Error: Cannot insert explicit value for identity column in table 'Address' when IDENTITY_INSERT is set to OFF.
+Time: 2007-03-11 01:33:26 | Procedure Name: GetAllCustomersDynamicDataSet() | Error: Invalid column name 'CustomerName'.
+Invalid column name 'CustomerName'.
+Time: 2007-03-11 01:33:26 | Procedure Name: GetCustomersDataSet | Error: Invalid column name 'CustomerName'.
+Invalid column name 'CustomerName'.
+Time: 2007-03-11 01:47:48 | Procedure Name: GetAllCustomersDynamicDataSet() | Error: Incorrect syntax near the keyword 'ORDER'.
+Time: 2007-03-11 01:47:49 | Procedure Name: GetCustomersDataSet | Error: Incorrect syntax near the keyword 'ORDER'.
+Time: 2007-03-11 01:52:25 | Procedure Name: GetAllCustomersDynamicDataSet() | Error: Incorrect syntax near the keyword 'ORDER'.
+Time: 2007-03-11 01:52:26 | Procedure Name: GetCustomersDataSet | Error: Incorrect syntax near the keyword 'ORDER'.
+Time: 2007-03-11 16:49:58 | Procedure Name: InsertSpecialOffer | Error: Procedure or function 'InsertSpecialOffer' expects parameter '@Category', which was not supplied.
+Time: 2007-03-11 16:49:59 | Procedure Name: AddSpecialOffer | Error: Procedure or function 'InsertSpecialOffer' expects parameter '@Category', which was not supplied.
+Time: 2007-03-11 16:53:52 | Procedure Name: AddSpecialOfferProduct | Error: Object reference not set to an instance of an object.
+Time: 2007-03-11 16:54:28 | Procedure Name: AddSpecialOfferProduct | Error: Object reference not set to an instance of an object.
+Time: 2007-03-11 16:55:45 | Procedure Name: AddSpecialOfferProduct | Error: Object reference not set to an instance of an object.
+Time: 2007-03-11 16:58:36 | Procedure Name: AddSpecialOfferProduct | Error: Object reference not set to an instance of an object.
+Time: 2007-03-11 16:59:39 | Procedure Name: AddSpecialOfferProduct | Error: Object reference not set to an instance of an object.
+Time: 2007-03-11 20:09:07 | Procedure Name: GetProductDynamicDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:09:08 | Procedure Name: GetProductsDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:09:28 | Procedure Name: GetProductDynamicDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:09:28 | Procedure Name: GetProductsDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:09:34 | Procedure Name: GetProductDynamicDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:09:34 | Procedure Name: GetProductsDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:09:43 | Procedure Name: GetProductDynamicDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:09:43 | Procedure Name: GetProductsDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:12:42 | Procedure Name: GetProductDynamicDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:12:42 | Procedure Name: GetProductsDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:13:32 | Procedure Name: GetProductDynamicDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:13:32 | Procedure Name: GetProductsDataSet | Error: Incorrect syntax near ')'.
+Time: 2007-03-11 20:14:32 | Procedure Name: GetProductDynamicDataSet | Error: Incorrect syntax near ','.
+Time: 2007-03-11 20:14:32 | Procedure Name: GetProductsDataSet | Error: Incorrect syntax near ','.
+**************************** 3/12/2007 12:00:00 AM ***********************************
+Time: 2007-03-12 19:42:46 | Procedure Name: GetAllUsersDynamicCollection | Error: Invalid column name 'LastName'.
+Time: 2007-03-12 19:42:57 | Procedure Name: GetAllUsersDynamicCollection | Error: Invalid column name 'LastName'.
+Time: 2007-03-12 19:43:02 | Procedure Name: GetAllUsersDynamicCollection | Error: Invalid column name 'LastName'.
+**************************** 3/14/2007 12:00:00 AM ***********************************
+Time: 2007-03-14 22:51:55 | Procedure Name: GetAllCustomersDynamicDataSet() | Error: Incorrect syntax near the keyword 'ORDER'.
+Time: 2007-03-14 22:51:55 | Procedure Name: GetCustomersDataSet | Error: Incorrect syntax near the keyword 'ORDER'.
+Time: 2007-03-14 23:15:22 | Procedure Name: GetAllCustomersDynamicDataSet() | Error: Incorrect syntax near the keyword 'ORDER'.
+Time: 2007-03-14 23:15:23 | Procedure Name: GetCustomersDataSet | Error: Incorrect syntax near the keyword 'ORDER'.
+Time: 2007-03-14 23:16:05 | Procedure Name: GetAllCustomersDynamicDataSet() | Error: Incorrect syntax near the keyword 'ORDER'.
+Time: 2007-03-14 23:16:05 | Procedure Name: GetCustomersDataSet | Error: Incorrect syntax near the keyword 'ORDER'.
+Time: 2007-03-14 23:16:14 | Procedure Name: GetAllCustomersDynamicDataSet() | Error: Invalid column name 'territory_id'.
+Time: 2007-03-14 23:16:14 | Procedure Name: GetCustomersDataSet | Error: Invalid column name 'territory_id'.
+**************************** 3/16/2007 12:00:00 AM ***********************************
+Time: 2007-03-16 22:50:07 | Procedure Name: GetAllCustomersCollection | Error: Could not find stored procedure 'SelectCustomerAll'.
+Time: 2007-03-16 22:50:07 | Procedure Name: GetAllCustomerCollection | Error: Could not find stored procedure 'SelectCustomerAll'.
+**************************** 3/18/2007 12:00:00 AM ***********************************
+Time: 2007-03-18 11:45:06 | Procedure Name: InsertSalesOrderHeader | Error: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+Time: 2007-03-18 11:45:07 | Procedure Name: AddSalesOrderHeader | Error: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.
+Time: 2007-03-18 11:47:09 | Procedure Name: InsertSalesOrderHeader | Error: Index was outside the bounds of the array.
+Time: 2007-03-18 11:47:09 | Procedure Name: AddSalesOrderHeader | Error: Index was outside the bounds of the array.
+Time: 2007-03-18 11:47:42 | Procedure Name: InsertSalesOrderHeader | Error: Index was outside the bounds of the array.
+Time: 2007-03-18 11:47:43 | Procedure Name: AddSalesOrderHeader | Error: Index was outside the bounds of the array.
+Time: 2007-03-18 11:56:21 | Procedure Name: SaveSaleOrder | Error: Input string was not in a correct format.
+Time: 2007-03-18 13:09:28 | Procedure Name: SaveSaleOrder | Error: Input string was not in a correct format.
+Time: 2007-03-18 14:26:09 | Procedure Name: GetAllSalesOrderHeadersCollection | Error: Could not find stored procedure 'SelectSalesOrderHeaderAll'.
+Time: 2007-03-18 14:26:10 | Procedure Name: GetAllSalesOrderHeaderCollection | Error: Could not find stored procedure 'SelectSalesOrderHeaderAll'.
+Time: 2007-03-18 14:55:46 | Procedure Name: GetAllSalesOrderHeadersDynamicCollection | Error: Invalid column name 'Pending'.
+Time: 2007-03-18 14:55:46 | Procedure Name: GetSalesOrderHeaderCollection | Error: Invalid column name 'Pending'.
+Time: 2007-03-18 14:57:03 | Procedure Name: GetAllSalesOrderHeadersDynamicCollection | Error: Conversion failed when converting the varchar value 'Pending' to data type tinyint.
+Time: 2007-03-18 14:57:03 | Procedure Name: GetSalesOrderHeaderCollection | Error: Conversion failed when converting the varchar value 'Pending' to data type tinyint.
+**************************** 4/4/2007 12:00:00 AM ***********************************
+Time: 2007-04-04 22:10:04 | Procedure Name: UpdateProductInventory | Error: Procedure or function 'InsertUpdateProductInventory' expects parameter '@Bin', which was not supplied.
+Time: 2007-04-04 22:10:04 | Procedure Name: UpdateProductInventory | Error: Procedure or function 'InsertUpdateProductInventory' expects parameter '@Bin', which was not supplied.
+Time: 2007-04-04 23:37:01 | Procedure Name: InsertSalesInvoiceHeader | Error: Procedure or function 'InsertSalesInvoiceHeader' expects parameter '@AccountNumber', which was not supplied.
+Time: 2007-04-04 23:37:13 | Procedure Name: AddSalesInvoiceHeader | Error: Procedure or function 'InsertSalesInvoiceHeader' expects parameter '@AccountNumber', which was not supplied.
+Time: 2007-04-04 23:39:32 | Procedure Name: InsertSalesInvoiceHeader | Error: Procedure or function 'InsertSalesInvoiceHeader' expects parameter '@PaymentMethodID', which was not supplied.
+Time: 2007-04-04 23:39:32 | Procedure Name: AddSalesInvoiceHeader | Error: Procedure or function 'InsertSalesInvoiceHeader' expects parameter '@PaymentMethodID', which was not supplied.
+Time: 2007-04-04 23:40:47 | Procedure Name: InsertSalesInvoiceHeader | Error: Procedure or function 'InsertSalesInvoiceHeader' expects parameter '@PaymentMethodID', which was not supplied.
+Time: 2007-04-04 23:40:48 | Procedure Name: AddSalesInvoiceHeader | Error: Procedure or function 'InsertSalesInvoiceHeader' expects parameter '@PaymentMethodID', which was not supplied.
+Time: 2007-04-04 23:41:56 | Procedure Name: InsertSalesInvoiceHeader | Error: Procedure or function 'InsertSalesInvoiceHeader' expects parameter '@PaymentMethodID', which was not supplied.
+Time: 2007-04-04 23:41:56 | Procedure Name: AddSalesInvoiceHeader | Error: Procedure or function 'InsertSalesInvoiceHeader' expects parameter '@PaymentMethodID', which was not supplied.
+Time: 2007-04-04 23:46:32 | Procedure Name: InsertSalesInvoiceHeader | Error: Input string was not in a correct format.
+Time: 2007-04-04 23:46:32 | Procedure Name: AddSalesInvoiceHeader | Error: Input string was not in a correct format.
+**************************** 4/7/2007 12:00:00 AM ***********************************
+Time: 2007-04-07 18:16:38 | Procedure Name: GetAllSalesOrderHeadersDynamicCollection | Error: Invalid column name 'OrderID'.
+Time: 2007-04-07 18:16:38 | Procedure Name: GetSalesOrderHeaderCollection | Error: Invalid column name 'OrderID'.
+**************************** 4/18/2007 12:00:00 AM ***********************************
+Time: 2007-04-18 23:13:55 | Procedure Name: GetAllCustomersCollection | Error: ExecuteReader: Connection property has not been initialized.
+Time: 2007-04-18 23:13:55 | Procedure Name: GetAllCustomerCollection | Error: Object reference not set to an instance of an object.
+Time: 2007-04-18 23:15:28 | Procedure Name: GetSalesOrderHeaderCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+**************************** 4/19/2007 12:00:00 AM ***********************************
+Time: 2007-04-19 00:08:42 | Procedure Name: GetAllCustomerCollection | Error: Configuration file error
+Time: 2007-04-19 00:17:06 | Procedure Name: GetAllCustomerCollection | Error: Configuration file error
+Time: 2007-04-19 00:17:13 | Procedure Name: GetSalesOrderHeaderCollection | Error: Could not load file or assembly 'System.Data.SqlServerCe, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+Time: 2007-04-19 00:17:41 | Procedure Name: GetSalesOrderDetailCollection | Error: Could not load file or assembly 'System.Data.SqlServerCe, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+Time: 2007-04-19 00:17:43 | Procedure Name: GetAddressDataSet | Error: Could not load file or assembly 'System.Data.SqlServerCe, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+Time: 2007-04-19 00:17:54 | Procedure Name: GetAllCustomerCollection | Error: Could not load file or assembly 'System.Data.SqlServerCe, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+Time: 2007-04-19 00:17:58 | Procedure Name: GetSalesOrderHeaderCollection | Error: Could not load file or assembly 'System.Data.SqlServerCe, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+Time: 2007-04-19 00:17:59 | Procedure Name: GetSalesOrderDetailCollection | Error: Could not load file or assembly 'System.Data.SqlServerCe, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+Time: 2007-04-19 00:18:00 | Procedure Name: GetAddressDataSet | Error: Could not load file or assembly 'System.Data.SqlServerCe, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+**************************** 5/17/2007 12:00:00 AM ***********************************
+Time: 2007-05-17 21:57:20 | Procedure Name: InsertSalesOrderHeader | Error: ExecuteNonQuery: Connection property has not been initialized.
+Time: 2007-05-17 21:57:20 | Procedure Name: AddSalesOrderHeader | Error: Object reference not set to an instance of an object.
+Time: 2007-05-17 22:00:24 | Procedure Name: AddSalesOrderHeader | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: TCP Provider, error: 0 - A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.)
+Time: 2007-05-17 22:04:23 | Procedure Name: AddSalesOrderHeader | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: TCP Provider, error: 0 - A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.)
+Time: 2007-05-17 22:10:57 | Procedure Name: InsertSalesOrderHeader | Error: Procedure or function 'InsertSalesOrderHeader' expects parameter '@Comment', which was not supplied.
+Time: 2007-05-17 22:10:58 | Procedure Name: AddSalesOrderHeader | Error: Procedure or function 'InsertSalesOrderHeader' expects parameter '@Comment', which was not supplied.
+Time: 2007-05-17 22:28:13 | Procedure Name: InsertSalesOrderDetail | Error: Procedure or function 'InsertSalesOrderDetail' expects parameter '@CarrierTrackingNumber', which was not supplied.
+Time: 2007-05-17 22:28:13 | Procedure Name: AddSalesOrderDetails | Error: Procedure or function 'InsertSalesOrderDetail' expects parameter '@CarrierTrackingNumber', which was not supplied.
+Time: 2007-05-17 22:30:25 | Procedure Name: AddSalesOrderHeader | Error: Object reference not set to an instance of an object.
+Time: 2007-05-17 22:40:52 | Procedure Name: AddSalesOrderHeader | Error: Object reference not set to an instance of an object.
+**************************** 5/19/2007 12:00:00 AM ***********************************
+Time: 2007-05-19 15:35:44 | Procedure Name: GetAllSalesOrderHeadersDynamicCollection | Error: Invalid column name 'CurrenctyRateID'.
+Time: 2007-05-19 15:35:44 | Procedure Name: GetSalesOrderHeaderCollection | Error: Invalid column name 'CurrenctyRateID'.
+Time: 2007-05-19 21:05:39 | Procedure Name: DeleteSalesOrderDetailMobile | Error: The specified table does not exist. [,,,,,]
+Time: 2007-05-19 21:12:33 | Procedure Name: AddSalesOrderDetailsMobile | Error: The specified table does not exist. [,,,,,]
+Time: 2007-05-19 21:13:27 | Procedure Name: AddSalesOrderDetailsMobile | Error: The specified table does not exist. [,,,,,]
+Time: 2007-05-19 21:17:40 | Procedure Name: AddSalesOrderDetailsMobile | Error: The specified table does not exist. [,,,,,]
+Time: 2007-05-19 23:39:17 | Procedure Name: GetAllProductsCollection | Error: 
+Time: 2007-05-19 23:39:21 | Procedure Name: GetAllProductsCollection | Error: 
+Time: 2007-05-19 23:40:36 | Procedure Name: GetAllProductsCollection | Error: 
+Time: 2007-05-19 23:40:40 | Procedure Name: GetAllProductsCollection | Error: 
+Time: 2007-05-19 23:44:36 | Procedure Name: GetAllProductsCollection | Error: 
+Time: 2007-05-19 23:44:40 | Procedure Name: GetAllProductsCollection | Error: 
+**************************** 5/20/2007 12:00:00 AM ***********************************
+Time: 2007-05-20 17:49:48 | Procedure Name: GetAllCustomersDynamicCollection | Error: Incorrect syntax near ')'.
+Time: 2007-05-20 17:49:48 | Procedure Name: GetCustomersCollection | Error: Incorrect syntax near ')'.
+Time: 2007-05-20 18:52:36 | Procedure Name: GetAllCustomersDynamicCollection | Error: Incorrect syntax near ')'.
+Time: 2007-05-20 18:52:36 | Procedure Name: GetCustomersCollection | Error: Incorrect syntax near ')'.
+Time: 2007-05-20 18:54:58 | Procedure Name: GetAllCustomersDynamicCollection | Error: Invalid column name 'cusomerid'.
+Time: 2007-05-20 18:54:58 | Procedure Name: GetCustomersCollection | Error: Invalid column name 'cusomerid'.
+Time: 2007-05-20 21:29:02 | Procedure Name: AddSalesOrderDetailsMobile | Error: Index and count must refer to a location within the buffer.
+Parameter name: bytes
+**************************** 5/23/2007 12:00:00 AM ***********************************
+Time: 2007-05-23 20:56:19 | Procedure Name: GetAllProductCategoryCollection | Error: Configuration file error
+Time: 2007-05-23 20:56:23 | Procedure Name: GetAllProductCategoryCollection | Error: Configuration file error
+Time: 2007-05-23 20:56:25 | Procedure Name: GetAddressDataSet | Error: Configuration file error
+**************************** 5/24/2007 12:00:00 AM ***********************************
+Time: 2007-05-24 22:13:50 | Procedure Name: GetAllCustomersCollection | Error: ExecuteReader: Connection property has not been initialized.
+Time: 2007-05-24 22:13:51 | Procedure Name: GetAllCustomerCollection | Error: Object reference not set to an instance of an object.
+Time: 2007-05-24 22:14:13 | Procedure Name: GetSalesOrderHeaderCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-24 22:14:20 | Procedure Name: GetSalesOrderDetailCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-24 22:14:21 | Procedure Name: GetAddressDataSet | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+**************************** 5/27/2007 12:00:00 AM ***********************************
+Time: 2007-05-27 14:49:26 | Procedure Name: GetAllSalesInvoiceHeadersDynamicCollection | Error: DudDate
+Time: 2007-05-27 14:49:26 | Procedure Name: GetSalesInvoiceHeadersCollection | Error: DudDate
+Time: 2007-05-27 14:53:05 | Procedure Name: GetAllSalesOrderHeadersDynamicCollection | Error: Invalid column name 'OrderID'.
+Invalid column name 'OrderID'.
+Time: 2007-05-27 14:53:05 | Procedure Name: GetSalesOrderHeaderCollection | Error: Invalid column name 'OrderID'.
+Invalid column name 'OrderID'.
+**************************** 5/28/2007 12:00:00 AM ***********************************
+Time: 2007-05-28 07:03:55 | Procedure Name: GetAllCustomersCollection | Error: ExecuteReader: Connection property has not been initialized.
+Time: 2007-05-28 07:03:55 | Procedure Name: GetAllCustomerCollection | Error: Object reference not set to an instance of an object.
+Time: 2007-05-28 07:04:20 | Procedure Name: GetSalesOrderHeaderCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 07:04:25 | Procedure Name: GetSalesOrderDetailCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 07:04:26 | Procedure Name: GetAddressDataSet | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 07:04:27 | Procedure Name: GetSalesInvoiceHeadersCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 07:46:53 | Procedure Name: AddPayment | Error: Input string was not in a correct format.
+Time: 2007-05-28 07:46:53 | Procedure Name: AddPayment | Error: Input string was not in a correct format.
+Time: 2007-05-28 08:19:06 | Procedure Name: GetTotalPaymentsByInvoice | Error: Input string was not in a correct format.
+Time: 2007-05-28 08:19:08 | Procedure Name: GetTotalPaymentsByInvoiceId | Error: Input string was not in a correct format.
+Time: 2007-05-28 13:45:44 | Procedure Name: GetDataSet() | Error: Unclosed quotation mark after the character string ')'.
+Incorrect syntax near ')'.
+Time: 2007-05-28 13:45:44 | Procedure Name: GetAddressDataSet | Error: Unclosed quotation mark after the character string ')'.
+Incorrect syntax near ')'.
+Time: 2007-05-28 20:15:13 | Procedure Name: GetAllCustomersCollection | Error: ExecuteReader: Connection property has not been initialized.
+Time: 2007-05-28 20:15:13 | Procedure Name: GetAllCustomerCollection | Error: Object reference not set to an instance of an object.
+Time: 2007-05-28 20:15:19 | Procedure Name: GetSalesOrderHeaderCollection | Error: Login failed for user 'sa1'.
+Time: 2007-05-28 20:15:21 | Procedure Name: GetSalesOrderDetailCollection | Error: Login failed for user 'sa1'.
+Time: 2007-05-28 20:15:22 | Procedure Name: GetAddressDataSet | Error: Login failed for user 'sa1'.
+Time: 2007-05-28 20:15:23 | Procedure Name: GetSalesInvoiceHeadersCollection | Error: Login failed for user 'sa1'.
+Time: 2007-05-28 22:22:28 | Procedure Name: GetAllCustomersCollection | Error: ExecuteReader: Connection property has not been initialized.
+Time: 2007-05-28 22:22:28 | Procedure Name: GetAllCustomerCollection | Error: Object reference not set to an instance of an object.
+Time: 2007-05-28 22:22:33 | Procedure Name: GetSalesOrderHeaderCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 22:22:53 | Procedure Name: GetSalesOrderDetailCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 22:23:04 | Procedure Name: GetAddressDataSet | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 22:23:05 | Procedure Name: GetSalesInvoiceHeadersCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 22:23:35 | Procedure Name: GetAllCustomerCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 22:23:38 | Procedure Name: GetSalesOrderHeaderCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 22:23:39 | Procedure Name: GetSalesOrderDetailCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 22:23:40 | Procedure Name: GetAddressDataSet | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-05-28 22:23:40 | Procedure Name: GetSalesInvoiceHeadersCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+**************************** 6/2/2007 12:00:00 AM ***********************************
+Time: 2007-06-02 09:56:12 | Procedure Name: GetAllCustomersCollection | Error: ExecuteReader: Connection property has not been initialized.
+Time: 2007-06-02 09:56:13 | Procedure Name: GetAllCustomerCollection | Error: Object reference not set to an instance of an object.
+Time: 2007-06-02 09:56:44 | Procedure Name: GetSalesOrderHeaderCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-06-02 09:56:52 | Procedure Name: GetSalesOrderDetailCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-06-02 09:56:54 | Procedure Name: GetAddressDataSet | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-06-02 09:56:57 | Procedure Name: GetSalesInvoiceHeadersCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-06-02 10:22:40 | Procedure Name: GetAllCustomersCollection | Error: ExecuteReader: Connection property has not been initialized.
+Time: 2007-06-02 10:22:41 | Procedure Name: GetAllCustomerCollection | Error: Object reference not set to an instance of an object.
+Time: 2007-06-02 10:23:29 | Procedure Name: GetSalesOrderHeaderCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-06-02 10:23:36 | Procedure Name: GetSalesOrderDetailCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-06-02 10:23:45 | Procedure Name: GetAddressDataSet | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-06-02 10:23:46 | Procedure Name: GetSalesInvoiceHeadersCollection | Error: An error has occurred while establishing a connection to the server.  When connecting to SQL Server 2005, this failure may be caused by the fact that under the default settings SQL Server does not allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+Time: 2007-06-02 10:26:21 | Procedure Name: GetAllCustomersCollection | Error: ExecuteReader: Connection property has not been initialized.
+Time: 2007-06-02 10:26:21 | Procedure Name: GetAllCustomerCollection | Error: Object reference not set to an instance of an object.
+Time: 2007-06-02 10:26:32 | Procedure Name: GetSalesOrderHeaderCollection | Error: Login failed for user 'sa'. Reason: The account is disabled.
+Time: 2007-06-02 10:26:39 | Procedure Name: GetSalesOrderDetailCollection | Error: Login failed for user 'sa'. Reason: The account is disabled.
+Time: 2007-06-02 10:26:43 | Procedure Name: GetAddressDataSet | Error: Login failed for user 'sa'. Reason: The account is disabled.
+Time: 2007-06-02 10:26:45 | Procedure Name: GetSalesInvoiceHeadersCollection | Error: Login failed for user 'sa'. Reason: The account is disabled.

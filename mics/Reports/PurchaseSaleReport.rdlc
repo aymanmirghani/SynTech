@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="mics_serverConnectionString1">
+      <rd:DataSourceID>bb3b270b-b0f3-4f76-bea2-6849930e5b7f</rd:DataSourceID>
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=.\SQLSERVER;Initial Catalog=mics_server;Persist Security Info=True;User ID=sa;Password=mics</ConnectString>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <ReportParameters>
+    <ReportParameter Name="GroupBy">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value>Product Categories</Value>
+        </Values>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Group By</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TerritoryName">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>TerritoryName</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Category">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Category</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SubCategory">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>SubCategory</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Customer">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Customer</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Product">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Product</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReportPeriod">
+      <DataType>DateTime</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportPeriod</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>1in</RightMargin>
+  <LeftMargin>1in</LeftMargin>
+  <PageHeader>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <ReportItems>
+      <Textbox Name="textbox8">
+        <rd:DefaultName>textbox8</rd:DefaultName>
+        <Top>0.125in</Top>
+        <Width>5.875in</Width>
+        <Style>
+          <Color>DarkSlateBlue</Color>
+          <FontSize>14pt</FontSize>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Left>0.25in</Left>
+        <Height>0.25in</Height>
+        <Value>="TOTAL SALE BY " &amp; Parameters!GroupBy.Value.ToString().ToUpper()</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>0.5in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageHeader>
+  <BottomMargin>1in</BottomMargin>
+  <rd:ReportID>db7e8117-7bf5-42a1-9d9c-b3ee42f74fae</rd:ReportID>
+  <DataSets>
+    <DataSet Name="PurchasedProducts_SalesReport">
+      <Fields>
+        <Field Name="TerritoryName">
+          <DataField>TerritoryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CustomerName">
+          <DataField>CustomerName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Product">
+          <DataField>Product</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProductCategory">
+          <DataField>ProductCategory</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SubCategory">
+          <DataField>SubCategory</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="total">
+          <DataField>total</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="quantity">
+          <DataField>quantity</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Discount">
+          <DataField>Discount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="InvoiceDate">
+          <DataField>InvoiceDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DateMMDDYY">
+          <DataField>DateMMDDYY</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="TerritoryID">
+          <DataField>TerritoryID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CustomerID">
+          <DataField>CustomerID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ProductID">
+          <DataField>ProductID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ProductCategoryID">
+          <DataField>ProductCategoryID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ProductSubcategoryID">
+          <DataField>ProductSubcategoryID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="InvoiceNumber">
+          <DataField>InvoiceNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UnitPrice">
+          <DataField>UnitPrice</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StandardCost">
+          <DataField>StandardCost</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TotalCost">
+          <DataField>TotalCost</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>mics_serverConnectionString1</DataSourceName>
+        <CommandText>SELECT     sih.InvoiceNumber, DATENAME(Month, sih.InvoiceDate) + '/' + DATENAME(Year, sih.InvoiceDate) AS InvoiceDate, sih.InvoiceDate AS DateMMDDYY, 
+                      ter.TerritoryID, ter.Name AS TerritoryName, cus.CustomerID, cus.Name AS CustomerName, prd.ProductID, prd.Name AS Product, cat.ProductCategoryID,
+                       prd.Description, cat.Name AS ProductCategory, sub.ProductSubcategoryID, sub.Name AS SubCategory, SUM(sid.LineTotal) AS total, SUM(sid.OrderQty) 
+                      AS quantity, sid.UnitPrice, prd.StandardCost, SUM(sid.UnitPriceDiscount) AS Discount, SUM(sid.OrderQty * prd.StandardCost) AS TotalCost
+FROM         SalesOrderDetail AS sid INNER JOIN
+                      Product AS prd ON sid.ProductID = prd.ProductID INNER JOIN
+                      ProductSubcategory AS sub ON prd.ProductSubcategoryID = sub.ProductSubcategoryID INNER JOIN
+                      ProductCategory AS cat ON sub.ProductCategoryID = cat.ProductCategoryID INNER JOIN
+                      SalesInvoiceHeader AS sih ON sid.SalesOrderID = sih.SaleOrderID INNER JOIN
+                      Customer AS cus ON sih.AccountNumber = cus.CustomerID INNER JOIN
+                      SalesTerritory AS ter ON cus.TerritoryID = ter.TerritoryID
+WHERE     (sih.InvoiceDate &gt;= DATEADD(Month, - 12, sih.InvoiceDate)) AND (sih.Status &lt;&gt; 6)
+GROUP BY sih.InvoiceNumber, sih.InvoiceDate, prd.ProductID, prd.Name, cat.ProductCategoryID, cat.Name, sub.ProductSubcategoryID, sub.Name, cus.Name, 
+                      sid.UnitPrice, cus.CustomerID, ter.Name, ter.TerritoryID, prd.Description, prd.StandardCost
+ORDER BY InvoiceDate DESC</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>PurchasedProducts</rd:DataSetName>
+        <rd:TableName>SalesReport</rd:TableName>
+        <rd:TableAdapterName>SalesReportTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Width>12.875in</Width>
+  <Body>
+    <ReportItems>
+      <Chart Name="chart1">
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <FontFamily>Tahoma</FontFamily>
+            <FontSize>8pt</FontSize>
+          </Style>
+          <Position>BottomCenter</Position>
+          <Layout>Table</Layout>
+        </Legend>
+        <CategoryAxis>
+          <Axis>
+            <Title>
+              <Caption>Month/Year</Caption>
+            </Title>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <ZIndex>1</ZIndex>
+        <DataSetName>PurchasedProducts_SalesReport</DataSetName>
+        <PlotArea>
+          <Style>
+            <BackgroundColor>LightGrey</BackgroundColor>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+          </Style>
+        </PlotArea>
+        <ThreeDProperties>
+          <Rotation>30</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <PointWidth>0</PointWidth>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <DynamicSeries>
+              <Grouping Name="chart1_SeriesGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!TerritoryName.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=Fields!TerritoryName.Value</Label>
+            </DynamicSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <Top>1.375in</Top>
+        <Subtype>Plain</Subtype>
+        <ValueAxis>
+          <Axis>
+            <Title>
+              <Caption>Gross Sale</Caption>
+            </Title>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+        <Type>Pie</Type>
+        <Width>4.5in</Width>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="chart1_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!TerritoryName.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=Fields!TerritoryName.Value</Label>
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <Palette>Pastel</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!total.Value)/Sum(Fields!total.Value, "PurchasedProducts_SalesReport")</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <Format>P</Format>
+                  </Style>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Type>Auto</Type>
+                  <Size>4pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+        <Title>
+          <Style />
+        </Title>
+        <Height>3.625in</Height>
+        <Left>0.25in</Left>
+      </Chart>
+      <Matrix Name="matrix1">
+        <MatrixColumns>
+          <MatrixColumn>
+            <Width>0.75in</Width>
+          </MatrixColumn>
+          <MatrixColumn>
+            <Width>0.75in</Width>
+          </MatrixColumn>
+          <MatrixColumn>
+            <Width>0.75in</Width>
+          </MatrixColumn>
+          <MatrixColumn>
+            <Width>0.75in</Width>
+          </MatrixColumn>
+          <MatrixColumn>
+            <Width>0.75in</Width>
+          </MatrixColumn>
+        </MatrixColumns>
+        <DataSetName>PurchasedProducts_SalesReport</DataSetName>
+        <RowGroupings>
+          <RowGrouping>
+            <Width>1in</Width>
+            <DynamicRows>
+              <Grouping Name="matrix1_TerritoryName">
+                <GroupExpressions>
+                  <GroupExpression>=iif(Parameters!GroupBy.Value="Territories",Fields!TerritoryID.Value,
+iif(Parameters!GroupBy.Value="Customers",Fields!CustomerID.Value,
+iif(Parameters!GroupBy.Value="Product Categories",Fields!ProductCategoryID.Value,
+iif(Parameters!GroupBy.Value="Product Sub Categories",Fields!ProductSubcategoryID.Value,
+iif(Parameters!GroupBy.Value="Product Names",Fields!Product.Value,Fields!TerritoryID.Value)))))</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Sorting>
+                <SortBy>
+                  <SortExpression>=iif(Parameters!GroupBy.Value="Territories",Fields!TerritoryName.Value,
+iif(Parameters!GroupBy.Value="Customers",Fields!CustomerName.Value,
+iif(Parameters!GroupBy.Value="Product Categories",Fields!ProductCategory.Value,
+iif(Parameters!GroupBy.Value="Product Sub Categories",Fields!SubCategory.Value,
+iif(Parameters!GroupBy.Value="Product Names",Fields!Product.Value,Fields!TerritoryName.Value)))))</SortExpression>
+                  <Direction>Ascending</Direction>
+                </SortBy>
+              </Sorting>
+              <Subtotal>
+                <ReportItems>
+                  <Textbox Name="textbox5">
+                    <rd:DefaultName>textbox5</rd:DefaultName>
+                    <Style>
+                      <BackgroundColor>Honeydew</BackgroundColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>700</FontWeight>
+                      <TextAlign>Right</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <CanGrow>true</CanGrow>
+                    <Value>Total</Value>
+                  </Textbox>
+                </ReportItems>
+              </Subtotal>
+              <ReportItems>
+                <Textbox Name="TerritoryName">
+                  <rd:DefaultName>TerritoryName</rd:DefaultName>
+                  <Style>
+                    <BackgroundColor>LightSteelBlue</BackgroundColor>
+                    <BorderStyle>
+                      <Default>Solid</Default>
+                    </BorderStyle>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                  <ZIndex>7</ZIndex>
+                  <CanGrow>true</CanGrow>
+                  <Value>=iif(Parameters!GroupBy.Value="Territories",Fields!TerritoryName.Value,
+iif(Parameters!GroupBy.Value="Customers",Fields!CustomerName.Value,
+iif(Parameters!GroupBy.Value="Product Categories",Fields!ProductCategory.Value,
+iif(Parameters!GroupBy.Value="Product Sub Categories",Fields!SubCategory.Value,
+iif(Parameters!GroupBy.Value="Product Names",Fields!Product.Value,Fields!TerritoryName.Value)))))</Value>
+                </Textbox>
+              </ReportItems>
+            </DynamicRows>
+          </RowGrouping>
+          <RowGrouping>
+            <Width>1in</Width>
+            <DynamicRows>
+              <Grouping Name="matrix1_RowGroup2">
+                <GroupExpressions>
+                  <GroupExpression>=iif(Parameters!GroupBy.Value="Territories",Fields!CustomerID.Value,
+iif(Parameters!GroupBy.Value="Customers",Fields!ProductCategoryID.Value,
+iif(Parameters!GroupBy.Value="Product Categories",Fields!ProductSubcategoryID.Value,
+iif(Parameters!GroupBy.Value="Product Sub Categories",Fields!Product.Value,
+iif(Parameters!GroupBy.Value="Product Names",Fields!Description.Value,
+"")))))</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Visibility>
+                <Hidden>true</Hidden>
+                <ToggleItem>TerritoryName</ToggleItem>
+              </Visibility>
+              <ReportItems>
+                <Textbox Name="textbox7">
+                  <rd:DefaultName>textbox7</rd:DefaultName>
+                  <Style>
+                    <BackgroundColor>Lavender</BackgroundColor>
+                    <BorderStyle>
+                      <Default>Solid</Default>
+                    </BorderStyle>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                  <ZIndex>6</ZIndex>
+                  <CanGrow>true</CanGrow>
+                  <Value>=iif(Parameters!GroupBy.Value="Territories",Fields!CustomerName.Value,
+iif(Parameters!GroupBy.Value="Customers",Fields!ProductCategory.Value,
+iif(Parameters!GroupBy.Value="Product Categories",Fields!SubCategory.Value,
+iif(Parameters!GroupBy.Value="Product Sub Categories",Fields!Product.Value,
+iif(Parameters!GroupBy.Value="Product Names",Fields!Description.Value,
+"")))))</Value>
+                </Textbox>
+              </ReportItems>
+            </DynamicRows>
+            <FixedHeader>true</FixedHeader>
+          </RowGrouping>
+        </RowGroupings>
+        <KeepTogether>true</KeepTogether>
+        <Filters>
+          <Filter>
+            <FilterExpression>=iif(Len(Parameters!TerritoryName.Value) &gt; 0,Fields!TerritoryName.Value,1)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=iif(Len(Parameters!TerritoryName.Value) &gt; 0,Parameters!TerritoryName.Value,1)</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=iif(Len(Parameters!Category.Value) &gt; 0,Fields!ProductCategory.Value,1)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=iif(Len(Parameters!Category.Value) &gt; 0,Parameters!Category.Value,1)</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=iif(Len(Parameters!SubCategory.Value) &gt; 0,Fields!SubCategory.Value,1)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=iif(Len(Parameters!SubCategory.Value) &gt; 0,Parameters!SubCategory.Value,1)</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=iif(Len(Parameters!Customer.Value) &gt; 0,Fields!CustomerName.Value,1)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=iif(Len(Parameters!Customer.Value) &gt; 0,Parameters!Customer.Value,1)</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=iif(Len(Parameters!Product.Value) &gt; 0,Fields!Product.Value,1)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=iif(Len(Parameters!Product.Value) &gt; 0,Parameters!Product.Value,1)</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+        <Top>0.125in</Top>
+        <PageBreakAtEnd>true</PageBreakAtEnd>
+        <ColumnGroupings>
+          <ColumnGrouping>
+            <Height>0.21875in</Height>
+            <DynamicColumns>
+              <Grouping Name="matrix1_InvoiceDate">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!InvoiceDate.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Sorting>
+                <SortBy>
+                  <SortExpression>=cdate(Fields!InvoiceDate.Value)</SortExpression>
+                  <Direction>Descending</Direction>
+                </SortBy>
+              </Sorting>
+              <Subtotal>
+                <ReportItems>
+                  <Textbox Name="textbox6">
+                    <rd:DefaultName>textbox6</rd:DefaultName>
+                    <Style>
+                      <BackgroundColor>LightSlateGray</BackgroundColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>13</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Value>Total</Value>
+                  </Textbox>
+                </ReportItems>
+              </Subtotal>
+              <ReportItems>
+                <Textbox Name="InvoiceDate">
+                  <rd:DefaultName>InvoiceDate</rd:DefaultName>
+                  <Style>
+                    <BackgroundColor>LightSlateGray</BackgroundColor>
+                    <BorderStyle>
+                      <Default>Solid</Default>
+                    </BorderStyle>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <TextAlign>Center</TextAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                  <ZIndex>14</ZIndex>
+                  <CanGrow>true</CanGrow>
+                  <Value>=Fields!InvoiceDate.Value</Value>
+                </Textbox>
+              </ReportItems>
+            </DynamicColumns>
+          </ColumnGrouping>
+          <ColumnGrouping>
+            <Height>0.21875in</Height>
+            <StaticColumns>
+              <StaticColumn>
+                <ReportItems>
+                  <Textbox Name="textbox2">
+                    <rd:DefaultName>textbox2</rd:DefaultName>
+                    <Style>
+                      <BackgroundColor>LightSteelBlue</BackgroundColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <TextAlign>Center</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>12</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Value>Gross Sale</Value>
+                  </Textbox>
+                </ReportItems>
+              </StaticColumn>
+              <StaticColumn>
+                <ReportItems>
+                  <Textbox Name="textbox4">
+                    <rd:DefaultName>textbox4</rd:DefaultName>
+                    <Style>
+                      <BackgroundColor>LightSteelBlue</BackgroundColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <TextAlign>Center</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>11</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Value>Discount</Value>
+                  </Textbox>
+                </ReportItems>
+              </StaticColumn>
+              <StaticColumn>
+                <ReportItems>
+                  <Textbox Name="textbox10">
+                    <rd:DefaultName>textbox10</rd:DefaultName>
+                    <Style>
+                      <BackgroundColor>LightSteelBlue</BackgroundColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <TextAlign>Center</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>10</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Value>Total Cost</Value>
+                  </Textbox>
+                </ReportItems>
+              </StaticColumn>
+              <StaticColumn>
+                <ReportItems>
+                  <Textbox Name="textbox11">
+                    <rd:DefaultName>textbox11</rd:DefaultName>
+                    <Style>
+                      <BackgroundColor>LightSteelBlue</BackgroundColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <TextAlign>Center</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>9</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Value>Net Sale</Value>
+                  </Textbox>
+                </ReportItems>
+              </StaticColumn>
+              <StaticColumn>
+                <ReportItems>
+                  <Textbox Name="textbox3">
+                    <rd:DefaultName>textbox3</rd:DefaultName>
+                    <Style>
+                      <BackgroundColor>LightSteelBlue</BackgroundColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <TextAlign>Center</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>8</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Value>Net Sale %</Value>
+                  </Textbox>
+                </ReportItems>
+              </StaticColumn>
+            </StaticColumns>
+          </ColumnGrouping>
+        </ColumnGroupings>
+        <Width>9.5in</Width>
+        <Corner>
+          <ReportItems>
+            <Textbox Name="textbox1">
+              <rd:DefaultName>textbox1</rd:DefaultName>
+              <Style>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+              <ZIndex>15</ZIndex>
+              <CanGrow>true</CanGrow>
+              <Value />
+            </Textbox>
+          </ReportItems>
+        </Corner>
+        <MatrixRows>
+          <MatrixRow>
+            <Height>0.21875in</Height>
+            <MatrixCells>
+              <MatrixCell>
+                <ReportItems>
+                  <Textbox Name="total">
+                    <rd:DefaultName>total</rd:DefaultName>
+                    <Action>
+                      <Drillthrough>
+                        <ReportName>SaleDetails</ReportName>
+                        <Parameters>
+                          <Parameter Name="MonthYear">
+                            <Value>=Fields!InvoiceDate.Value</Value>
+                          </Parameter>
+                          <Parameter Name="TerritoryID">
+                            <Value>=iif((Parameters!GroupBy.Value="Territories" and inscope("matrix1_TerritoryName")) or Len(Parameters!TerritoryName.Value) &gt; 0 ,Fields!TerritoryID.Value,nothing)</Value>
+                          </Parameter>
+                          <Parameter Name="CustomerID">
+                            <Value>=iif(Parameters!GroupBy.Value="Customers" or (Parameters!GroupBy.Value="Territories" and inscope("matrix1_RowGroup2")) or(Len(Parameters!Customer.Value) &gt; 0),Fields!CustomerID.Value,nothing)</Value>
+                          </Parameter>
+                          <Parameter Name="CategoryID">
+                            <Value>=iif(Parameters!GroupBy.Value="Product Categories" or Len(Parameters!Category.Value) &gt; 0,Fields!ProductCategoryID.Value,nothing)</Value>
+                          </Parameter>
+                          <Parameter Name="SubCategoryID">
+                            <Value>=iif(Parameters!GroupBy.Value="Product Sub Categories" or(Parameters!GroupBy.Value="Product Categories" and Inscope("matrix1_RowGroup2")) or Len(Parameters!SubCategory.Value)&gt;0,Fields!ProductSubcategoryID.Value,nothing)</Value>
+                          </Parameter>
+                          <Parameter Name="ProductID">
+                            <Value>=iif(Parameters!GroupBy.Value="Product Names" or(Parameters!GroupBy.Value="Product Sub Categories" and inscope("matrix1_RowGroup2")) or Len(Parameters!Product.Value) &gt; 0,Fields!ProductID.Value,nothing)</Value>
+                          </Parameter>
+                        </Parameters>
+                      </Drillthrough>
+                    </Action>
+                    <Style>
+                      <Color>MediumBlue</Color>
+                      <BackgroundColor>=iif(inscope("matrix1_RowGroup2"),"Lavender","white")</BackgroundColor>
+                      <BorderColor>
+                        <Default>Silver</Default>
+                      </BorderColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>C</Format>
+                      <TextAlign>Right</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>5</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Value>=iif(Len(Fields!total.Value)=0,0,Sum(Fields!total.Value))</Value>
+                  </Textbox>
+                </ReportItems>
+              </MatrixCell>
+              <MatrixCell>
+                <ReportItems>
+                  <Textbox Name="Discount">
+                    <rd:DefaultName>Discount</rd:DefaultName>
+                    <Style>
+                      <BackgroundColor>=iif(inscope("matrix1_RowGroup2"),"Lavender","white")</BackgroundColor>
+                      <BorderColor>
+                        <Default>Silver</Default>
+                      </BorderColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>C</Format>
+                      <TextAlign>Right</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>4</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Value>=Sum(Fields!Discount.Value)</Value>
+                  </Textbox>
+                </ReportItems>
+              </MatrixCell>
+              <MatrixCell>
+                <ReportItems>
+                  <Textbox Name="TotalCost">
+                    <rd:DefaultName>TotalCost</rd:DefaultName>
+                    <Style>
+                      <BackgroundColor>=iif(inscope("matrix1_RowGroup2"),"Lavender","white")</BackgroundColor>
+                      <BorderColor>
+                        <Default>Silver</Default>
+                      </BorderColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>C</Format>
+                      <TextAlign>Right</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>3</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Value>=Sum(Fields!TotalCost.Value)</Value>
+                  </Textbox>
+                </ReportItems>
+              </MatrixCell>
+              <MatrixCell>
+                <ReportItems>
+                  <Textbox Name="textbox12">
+                    <rd:DefaultName>textbox12</rd:DefaultName>
+                    <Style>
+                      <BackgroundColor>=iif(inscope("matrix1_RowGroup2"),"Lavender","white")</BackgroundColor>
+                      <BorderColor>
+                        <Default>Silver</Default>
+                      </BorderColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>C</Format>
+                      <TextAlign>Right</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>2</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Value>=sum(Fields!total.Value) - sum(Fields!TotalCost.Value)</Value>
+                  </Textbox>
+                </ReportItems>
+              </MatrixCell>
+              <MatrixCell>
+                <ReportItems>
+                  <Textbox Name="textbox9">
+                    <rd:DefaultName>textbox9</rd:DefaultName>
+                    <Style>
+                      <BackgroundColor>=iif(inscope("matrix1_RowGroup2"),"Lavender","white")</BackgroundColor>
+                      <BorderColor>
+                        <Default>Silver</Default>
+                      </BorderColor>
+                      <BorderStyle>
+                        <Default>Solid</Default>
+                      </BorderStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>P</Format>
+                      <TextAlign>Right</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <ZIndex>1</ZIndex>
+                    <CanGrow>true</CanGrow>
+                    <Value>=(sum(Fields!total.Value) - sum(Fields!TotalCost.Value)) /sum(Fields!TotalCost.Value)</Value>
+                  </Textbox>
+                </ReportItems>
+              </MatrixCell>
+            </MatrixCells>
+          </MatrixRow>
+        </MatrixRows>
+        <Height>0.875in</Height>
+        <Left>0.125in</Left>
+      </Matrix>
+    </ReportItems>
+    <Height>5.625in</Height>
+  </Body>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+</Report>

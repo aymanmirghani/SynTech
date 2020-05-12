@@ -1,0 +1,10 @@
+SCC = This is a Source Code Control file.
+
+[MICS.csproj]
+SCC_Aux_Path = kenana
+SCC_Project_Name = $/MICS.root/MICS/mics
+
+[MICS.sln]
+SCC_Aux_Path = no profile
+SCC_Project_Name = $/MICS.root/MICS/mics
+

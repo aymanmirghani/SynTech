@@ -1,0 +1,245 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using MICS.BLL;
+namespace MICS
+{
+    public partial class frmCategory : frmParent
+    {
+        ProductCategoryCollection CategoryCol = new ProductCategoryCollection();
+        public frmCategory()
+        {
+            InitializeComponent();
+        }
+
+        private void PopulateCategories(int selectedId)
+        {
+            ProductCategory pc = new ProductCategory();
+            
+            ProductCategory selectNew = new ProductCategory();
+            
+            try
+            {
+                selectNew.Name = "[Select One]";
+                selectNew.ProductCategoryID = 0;
+                CategoryCol = pc.GetAllProductCategoryCollection();
+                CategoryGrid.DataSource = CategoryCol;
+                CategoryGrid.Columns.Remove("ModifiedDate");
+                CategoryGrid.Columns["ProductCategoryID"].Visible = false;
+                if (selectedId > 0)
+                {
+                    for (int i = 0; i < CategoryCol.Count; i++)
+                    {
+                        if (CategoryCol[i].ProductCategoryID == selectedId)
+                        {
+                            CategoryGrid.Rows[i].Selected = true;
+                            CategoryGrid.FirstDisplayedScrollingRowIndex = i;
+                            GridRowChanged(i);
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Product Categories",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+       
+        private void frmCategory_Load(object sender, EventArgs e)
+        {
+            PopulateCategories(0);
+        }
+        private bool ValidCategory()
+        {
+           return( ValidateEmpty(txtCategory));
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (ValidCategory() == false)
+            {
+                return;
+            }
+            int id = 0;
+            try
+            {
+
+                id = Int32.Parse(lblCategoryID.Text.ToString());
+            }
+            catch
+            {
+                id = 0;
+            }
+            if (id > 0)
+            {
+                UpdateCategory();
+            }
+            else
+            {
+                id = AddCategory();
+            }
+            PopulateCategories(id);
+        }
+        private int AddCategory()
+        {
+            int ret = 0;
+            Cursor.Current = Cursors.WaitCursor;
+            string strCategory = txtCategory.Text.Trim();
+            ProductCategory pc = new ProductCategory();
+            try
+            {
+                pc.Name = strCategory;
+                int pcid = pc.Exists(pc.Name);
+                if (pcid > 0)
+                {
+                    DialogResult result = MessageBox.Show("Procut Category " + pc.Name + " already exists\nWould you like to update it?", "MICS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        pc.UpdateProductCategory(pc);
+                        MessageBox.Show("Record updated successfully", "MICS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Record is not saved", "MICS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                }
+                else
+                {
+                    pc.AddProductCategory(pc);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Product Categories", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Cursor.Current = Cursors.Default;
+            }
+            Cursor.Current = Cursors.Default;
+            return ret;
+        }
+        private void UpdateCategory()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            string strCategory = txtCategory.Text.Trim();
+            int id = 0;
+            try
+            {
+                id = Int32.Parse(lblCategoryID.Text);
+            }
+            catch
+            {
+                id = 0;
+            }
+            if (id == 0)
+            {
+                MessageBox.Show("No record to update", "Product Category", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            ProductCategory pc = new ProductCategory();
+            try
+            {
+                pc.Name = strCategory;
+                pc.ProductCategoryID = id;
+                pc.UpdateProductCategory(pc);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Product Categories", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Cursor.Current = Cursors.Default;
+            }
+            Cursor.Current = Cursors.Default;
+        }
+        private void DeleteCategory()
+        {
+            ProductCategory pc = new ProductCategory();
+
+            int id = 0;
+            try
+            {
+                id = Int32.Parse(lblCategoryID.Text);
+            }
+            catch
+            {
+                id = 0;
+            }
+            if (id == 1)
+            {
+                MessageBox.Show("No category is selected", "Product Categories", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                pc.ProductCategoryID = id;
+                pc.RemoveProductCategory(id);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Product Categories", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int cur_row = CategoryGrid.CurrentRow.Index;
+            DeleteCategory();
+            cur_row++;
+            if (cur_row >= CategoryGrid.Rows.Count)
+                cur_row = 0;
+            int id = CategoryCol[cur_row].ProductCategoryID;
+            PopulateCategories(id);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            txtCategory.Text = String.Empty;
+            lblCategoryID.Text = String.Empty;
+        }
+        private void CategoryGrid_MouseClick(object sender, MouseEventArgs e)
+        {
+            GridRowChanged(-1);
+        }
+
+        private void GridRowChanged(int rowIndex)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            if (rowIndex == -1)
+                row = CategoryGrid.CurrentRow;
+            else
+                row = CategoryGrid.Rows[rowIndex];
+
+            if (row == null) return;
+            foreach (DataGridViewCell cell in row.Cells)
+            {
+                switch (cell.OwningColumn.Name)
+                {
+                    case "ProductCategoryID":
+                        lblCategoryID.Text = cell.Value.ToString();
+                        break;
+                    case "Name":
+                        txtCategory.Text = cell.Value.ToString();
+                        break;
+                }
+            }
+        }
+
+        
+
+        
+
+        private void CategoryGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            GridRowChanged(-1);
+        }
+    }
+}

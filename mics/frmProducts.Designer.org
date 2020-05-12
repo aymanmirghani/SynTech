@@ -1,0 +1,672 @@
+namespace MICS
+{
+    partial class frmProducts
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnFNew = new System.Windows.Forms.Button();
+            this.btnFSave = new System.Windows.Forms.Button();
+            this.btnFDelete = new System.Windows.Forms.Button();
+            this.btnFSearch = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ProductGrid = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtDaysToManufacture = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtReorderPoint = new System.Windows.Forms.TextBox();
+            this.txtSafetyStockLevel = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cmbSecondaryVendor = new System.Windows.Forms.ComboBox();
+            this.cmbPrimaryVendor = new System.Windows.Forms.ComboBox();
+            this.chkActive = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.picSubCategories = new System.Windows.Forms.PictureBox();
+            this.picAddCategory = new System.Windows.Forms.PictureBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtStandardCost = new System.Windows.Forms.TextBox();
+            this.txtListPrice = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbProductSubCategories = new System.Windows.Forms.ComboBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtProductNumber = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblProductID = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtComments = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductGrid)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSubCategories)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAddCategory)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.groupBox8);
+            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Location = new System.Drawing.Point(14, 14);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(886, 522);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox8.Controls.Add(this.tableLayoutPanel1);
+            this.groupBox8.Location = new System.Drawing.Point(9, 245);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(870, 59);
+            this.groupBox8.TabIndex = 2;
+            this.groupBox8.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.btnFNew, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnFSave, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnFDelete, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnFSearch, 4, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 17);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(864, 39);
+            this.tableLayoutPanel1.TabIndex = 5;
+            // 
+            // btnFNew
+            // 
+            this.btnFNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFNew.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnFNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnFNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFNew.Location = new System.Drawing.Point(201, 3);
+            this.btnFNew.Name = "btnFNew";
+            this.btnFNew.Size = new System.Drawing.Size(104, 30);
+            this.btnFNew.TabIndex = 5;
+            this.btnFNew.Text = "Clear";
+            this.btnFNew.UseVisualStyleBackColor = true;
+            this.btnFNew.Click += new System.EventHandler(this.btnFNew_Click);
+            // 
+            // btnFSave
+            // 
+            this.btnFSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFSave.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnFSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnFSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFSave.Location = new System.Drawing.Point(318, 3);
+            this.btnFSave.Name = "btnFSave";
+            this.btnFSave.Size = new System.Drawing.Size(104, 30);
+            this.btnFSave.TabIndex = 6;
+            this.btnFSave.Text = "Save";
+            this.btnFSave.UseVisualStyleBackColor = true;
+            this.btnFSave.Click += new System.EventHandler(this.btnFSave_Click);
+            // 
+            // btnFDelete
+            // 
+            this.btnFDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFDelete.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnFDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnFDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFDelete.Location = new System.Drawing.Point(435, 3);
+            this.btnFDelete.Name = "btnFDelete";
+            this.btnFDelete.Size = new System.Drawing.Size(104, 30);
+            this.btnFDelete.TabIndex = 7;
+            this.btnFDelete.Text = "Delete";
+            this.btnFDelete.UseVisualStyleBackColor = true;
+            this.btnFDelete.Click += new System.EventHandler(this.btnFDelete_Click);
+            // 
+            // btnFSearch
+            // 
+            this.btnFSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFSearch.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnFSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnFSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFSearch.Location = new System.Drawing.Point(552, 3);
+            this.btnFSearch.Name = "btnFSearch";
+            this.btnFSearch.Size = new System.Drawing.Size(104, 30);
+            this.btnFSearch.TabIndex = 8;
+            this.btnFSearch.Text = "Search";
+            this.btnFSearch.UseVisualStyleBackColor = true;
+            this.btnFSearch.Click += new System.EventHandler(this.btnFSearch_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.ProductGrid);
+            this.groupBox3.Location = new System.Drawing.Point(9, 310);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(870, 204);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Product List";
+            // 
+            // ProductGrid
+            // 
+            this.ProductGrid.AllowUserToAddRows = false;
+            this.ProductGrid.AllowUserToDeleteRows = false;
+            this.ProductGrid.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ProductGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.ProductGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.ProductGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProductGrid.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ProductGrid.Location = new System.Drawing.Point(10, 22);
+            this.ProductGrid.Name = "ProductGrid";
+            this.ProductGrid.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.ProductGrid.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.ProductGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ProductGrid.Size = new System.Drawing.Size(853, 175);
+            this.ProductGrid.TabIndex = 0;
+            this.ProductGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ProductGrid_MouseClick);
+            this.ProductGrid.SelectionChanged += new System.EventHandler(this.ProductGrid_SelectionChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.groupBox7);
+            this.groupBox2.Controls.Add(this.groupBox5);
+            this.groupBox2.Controls.Add(this.groupBox4);
+            this.groupBox2.Location = new System.Drawing.Point(9, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(870, 227);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Product Details";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox7.Controls.Add(this.label3);
+            this.groupBox7.Controls.Add(this.txtDaysToManufacture);
+            this.groupBox7.Controls.Add(this.label2);
+            this.groupBox7.Controls.Add(this.txtReorderPoint);
+            this.groupBox7.Controls.Add(this.txtSafetyStockLevel);
+            this.groupBox7.Controls.Add(this.label20);
+            this.groupBox7.Location = new System.Drawing.Point(571, 117);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(292, 103);
+            this.groupBox7.TabIndex = 28;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Inventory";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 72);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 15);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Day to Manufacture";
+            // 
+            // txtDaysToManufacture
+            // 
+            this.txtDaysToManufacture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDaysToManufacture.Location = new System.Drawing.Point(128, 67);
+            this.txtDaysToManufacture.Name = "txtDaysToManufacture";
+            this.txtDaysToManufacture.Size = new System.Drawing.Size(73, 21);
+            this.txtDaysToManufacture.TabIndex = 30;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(41, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 15);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Reorder Point";
+            // 
+            // txtReorderPoint
+            // 
+            this.txtReorderPoint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtReorderPoint.Location = new System.Drawing.Point(128, 42);
+            this.txtReorderPoint.Name = "txtReorderPoint";
+            this.txtReorderPoint.Size = new System.Drawing.Size(73, 21);
+            this.txtReorderPoint.TabIndex = 28;
+            // 
+            // txtSafetyStockLevel
+            // 
+            this.txtSafetyStockLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSafetyStockLevel.Location = new System.Drawing.Point(128, 17);
+            this.txtSafetyStockLevel.Name = "txtSafetyStockLevel";
+            this.txtSafetyStockLevel.Size = new System.Drawing.Size(73, 21);
+            this.txtSafetyStockLevel.TabIndex = 13;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(12, 22);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(105, 15);
+            this.label20.TabIndex = 27;
+            this.label20.Text = "Safety Stock Level";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.cmbSecondaryVendor);
+            this.groupBox5.Controls.Add(this.cmbPrimaryVendor);
+            this.groupBox5.Controls.Add(this.chkActive);
+            this.groupBox5.Controls.Add(this.label6);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.picSubCategories);
+            this.groupBox5.Controls.Add(this.picAddCategory);
+            this.groupBox5.Controls.Add(this.label22);
+            this.groupBox5.Controls.Add(this.label21);
+            this.groupBox5.Controls.Add(this.txtStandardCost);
+            this.groupBox5.Controls.Add(this.txtListPrice);
+            this.groupBox5.Controls.Add(this.txtName);
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Controls.Add(this.cmbProductSubCategories);
+            this.groupBox5.Controls.Add(this.txtDescription);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.label8);
+            this.groupBox5.Controls.Add(this.txtProductNumber);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.cmbCategory);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.lblProductID);
+            this.groupBox5.Location = new System.Drawing.Point(10, 14);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(554, 205);
+            this.groupBox5.TabIndex = 26;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Info";
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
+            // 
+            // cmbSecondaryVendor
+            // 
+            this.cmbSecondaryVendor.FormattingEnabled = true;
+            this.cmbSecondaryVendor.Location = new System.Drawing.Point(355, 176);
+            this.cmbSecondaryVendor.Name = "cmbSecondaryVendor";
+            this.cmbSecondaryVendor.Size = new System.Drawing.Size(177, 23);
+            this.cmbSecondaryVendor.TabIndex = 33;
+            // 
+            // cmbPrimaryVendor
+            // 
+            this.cmbPrimaryVendor.FormattingEnabled = true;
+            this.cmbPrimaryVendor.Location = new System.Drawing.Point(355, 149);
+            this.cmbPrimaryVendor.Name = "cmbPrimaryVendor";
+            this.cmbPrimaryVendor.Size = new System.Drawing.Size(177, 23);
+            this.cmbPrimaryVendor.TabIndex = 32;
+            // 
+            // chkActive
+            // 
+            this.chkActive.AutoSize = true;
+            this.chkActive.Checked = true;
+            this.chkActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkActive.Location = new System.Drawing.Point(380, 18);
+            this.chkActive.Name = "chkActive";
+            this.chkActive.Size = new System.Drawing.Size(57, 19);
+            this.chkActive.TabIndex = 36;
+            this.chkActive.Text = "Active";
+            this.chkActive.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(242, 184);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 15);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "Secondary Vendor";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(258, 157);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 15);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Primary Vendor";
+            // 
+            // picSubCategories
+            // 
+            this.picSubCategories.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picSubCategories.Image = global::MICS.Properties.Resources.add;
+            this.picSubCategories.Location = new System.Drawing.Point(347, 113);
+            this.picSubCategories.Name = "picSubCategories";
+            this.picSubCategories.Size = new System.Drawing.Size(16, 16);
+            this.picSubCategories.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picSubCategories.TabIndex = 31;
+            this.picSubCategories.TabStop = false;
+            this.picSubCategories.Click += new System.EventHandler(this.picSubCategories_Click);
+            // 
+            // picAddCategory
+            // 
+            this.picAddCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picAddCategory.Image = global::MICS.Properties.Resources.add;
+            this.picAddCategory.Location = new System.Drawing.Point(347, 91);
+            this.picAddCategory.Name = "picAddCategory";
+            this.picAddCategory.Size = new System.Drawing.Size(16, 16);
+            this.picAddCategory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picAddCategory.TabIndex = 30;
+            this.picAddCategory.TabStop = false;
+            this.picAddCategory.Click += new System.EventHandler(this.picAddCategory_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(62, 147);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(33, 15);
+            this.label22.TabIndex = 29;
+            this.label22.Text = "Cost";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(45, 170);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(58, 15);
+            this.label21.TabIndex = 28;
+            this.label21.Text = "List Price";
+            // 
+            // txtStandardCost
+            // 
+            this.txtStandardCost.BackColor = System.Drawing.Color.Linen;
+            this.txtStandardCost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStandardCost.Location = new System.Drawing.Point(109, 141);
+            this.txtStandardCost.Name = "txtStandardCost";
+            this.txtStandardCost.Size = new System.Drawing.Size(81, 21);
+            this.txtStandardCost.TabIndex = 26;
+            // 
+            // txtListPrice
+            // 
+            this.txtListPrice.BackColor = System.Drawing.Color.Linen;
+            this.txtListPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtListPrice.Location = new System.Drawing.Point(109, 168);
+            this.txtListPrice.Name = "txtListPrice";
+            this.txtListPrice.Size = new System.Drawing.Size(81, 21);
+            this.txtListPrice.TabIndex = 27;
+            // 
+            // txtName
+            // 
+            this.txtName.BackColor = System.Drawing.Color.Linen;
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtName.Location = new System.Drawing.Point(109, 15);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(232, 21);
+            this.txtName.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(62, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 15);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Name";
+            // 
+            // cmbProductSubCategories
+            // 
+            this.cmbProductSubCategories.BackColor = System.Drawing.Color.Linen;
+            this.cmbProductSubCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProductSubCategories.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbProductSubCategories.FormattingEnabled = true;
+            this.cmbProductSubCategories.Location = new System.Drawing.Point(109, 113);
+            this.cmbProductSubCategories.Name = "cmbProductSubCategories";
+            this.cmbProductSubCategories.Size = new System.Drawing.Size(232, 23);
+            this.cmbProductSubCategories.TabIndex = 5;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDescription.Location = new System.Drawing.Point(109, 39);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(232, 21);
+            this.txtDescription.TabIndex = 2;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(47, 91);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 15);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "Category";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(33, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 15);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Description";
+            // 
+            // txtProductNumber
+            // 
+            this.txtProductNumber.BackColor = System.Drawing.Color.White;
+            this.txtProductNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProductNumber.Location = new System.Drawing.Point(109, 65);
+            this.txtProductNumber.Name = "txtProductNumber";
+            this.txtProductNumber.Size = new System.Drawing.Size(232, 21);
+            this.txtProductNumber.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(97, 15);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Product Number";
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.BackColor = System.Drawing.Color.Linen;
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategory.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(109, 88);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(232, 23);
+            this.cmbCategory.TabIndex = 4;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 116);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 15);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Sub Category";
+            // 
+            // lblProductID
+            // 
+            this.lblProductID.AutoSize = true;
+            this.lblProductID.Location = new System.Drawing.Point(10, 20);
+            this.lblProductID.Name = "lblProductID";
+            this.lblProductID.Size = new System.Drawing.Size(0, 15);
+            this.lblProductID.TabIndex = 4;
+            this.lblProductID.Visible = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.txtComments);
+            this.groupBox4.Location = new System.Drawing.Point(571, 14);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(292, 98);
+            this.groupBox4.TabIndex = 25;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Comments";
+            // 
+            // txtComments
+            // 
+            this.txtComments.Location = new System.Drawing.Point(15, 22);
+            this.txtComments.Multiline = true;
+            this.txtComments.Name = "txtComments";
+            this.txtComments.Size = new System.Drawing.Size(271, 64);
+            this.txtComments.TabIndex = 0;
+            // 
+            // frmProducts
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(914, 549);
+            this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name = "frmProducts";
+            this.Text = "Products";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.frmProducts_Activated);
+            this.ResizeEnd += new System.EventHandler(this.frmProducts_ResizeEnd);
+            this.Load += new System.EventHandler(this.frmProducts_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ProductGrid)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSubCategories)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAddCategory)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtProductNumber;
+        private System.Windows.Forms.Label lblProductID;
+        private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox cmbProductSubCategories;
+        private System.Windows.Forms.DataGridView ProductGrid;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtSafetyStockLevel;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtStandardCost;
+        private System.Windows.Forms.TextBox txtListPrice;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDaysToManufacture;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtReorderPoint;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.PictureBox picAddCategory;
+        private System.Windows.Forms.PictureBox picSubCategories;
+        private System.Windows.Forms.Button btnFNew;
+        private System.Windows.Forms.Button btnFSave;
+        private System.Windows.Forms.Button btnFDelete;
+        private System.Windows.Forms.Button btnFSearch;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbSecondaryVendor;
+        private System.Windows.Forms.ComboBox cmbPrimaryVendor;
+        private System.Windows.Forms.TextBox txtComments;
+        private System.Windows.Forms.CheckBox chkActive;
+    }
+}
